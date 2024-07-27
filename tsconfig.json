@@ -1,0 +1,42 @@
+{
+	"ts-node": {
+		"files": true
+	},
+	"files": ["src/lib/global.ts"],
+	"compilerOptions": {
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"module": "commonjs",
+		"pretty": true,
+		"types": ["node", "jest"],
+		"outDir": "dist",
+		"sourceMap": true,
+		"target": "es2017",
+		"allowJs": true,
+		"baseUrl": ".",
+		"typeRoots": ["./node_modules/@types", "./src/lib"],
+		"paths": {
+			"@Controllers/*": ["src/controllers/*"],
+			"@Controllers": ["src/controllers"],
+			"@Middlewares/*": ["src/middlewares/*"],
+			"@Middlewares": ["src/middlewares"],
+			"@Models/*": ["src/model/*"],
+			"@Models": ["src/model"],
+			"@Routes/*": ["src/routes/*"],
+			"@Routes": ["src/routes"],
+			"@Helpers/*": ["src/helpers/*"],
+			"@Helpers": ["src/helpers"],
+			"@Utility/*": ["src/utils/*"],
+			"@Utility": ["src/utils"]
+		}
+	},
+	"include": ["./src/**/*.ts", "./src/index.html", "./src/swagger.json"],
+	"exclude": ["node_modules"]
+	// TODO: include unit test framework
+}

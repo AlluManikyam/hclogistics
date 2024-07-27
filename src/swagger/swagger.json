@@ -1,0 +1,275 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "The Title of your project",
+		"description": "A description of your project"
+	},
+	"components": {
+		"schemas": {
+			"Tenant": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": false
+					},
+					"name": {
+						"type": "string",
+						"nullable": false
+					},
+					"description": {
+						"type": "string",
+						"nullable": false
+					},
+					"image": {
+						"type": "string",
+						"nullable": true
+					}
+				}
+			},
+			"Response": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"status": {
+						"type": "number"
+					}
+				}
+			},
+			"Error": {
+				"type": "object",
+				"properties": {
+					"status": {
+						"type": "number"
+					},
+					"errorCode": {
+						"type": "string"
+					},
+					"errorData": {
+						"type": "object"
+					},
+					"errorMessage": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"paths": {
+		"/tenants": {
+			"post": {
+				"summary": "Create Tenant",
+				"tags": ["Tenant"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Tenant"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{ "$ref": "#/components/schemas/Response" },
+										{
+											"type": "object",
+											"properties": {
+												"data": {
+													"$ref": "#/components/schemas/Tenant"
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": ""
+					}
+				}
+			},
+			"get": {
+				"tags": ["Tenant"],
+				"summary": "Get Tenants",
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{ "$ref": "#/components/schemas/Response" },
+										{
+											"type": "object",
+											"properties": {
+												"data": {
+													"type": "object",
+													"properties": {
+														"items": {
+															"type": "array",
+															"items": {
+																"$ref": "#/components/schemas/Tenant"
+															}
+														},
+														"totalCount": {
+															"type": "number"
+														}
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": ""
+					}
+				}
+			}
+		},
+		"/tenants/{tenantId}": {
+			"patch": {
+				"summary": "Update Tenant",
+				"tags": ["Tenant"],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Tenant"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "tenantId",
+						"in": "path",
+						"required": true,
+						"allowEmptyValue": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{ "$ref": "#/components/schemas/Response" },
+										{
+											"type": "object",
+											"properties": {
+												"data": {
+													"$ref": "#/components/schemas/Tenant"
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": ""
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Tenant"],
+				"summary": "Delete Tenant",
+				"parameters": [
+					{
+						"name": "tenantId",
+						"in": "path",
+						"required": true,
+						"allowEmptyValue": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{ "$ref": "#/components/schemas/Response" },
+										{
+											"type": "object",
+											"properties": {
+												"data": {
+													"type": "boolean"
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": ""
+					}
+				}
+			}
+		}
+	},
+	"tags": [{ "name": "Tenant", "description": "Manage Tenant" }]
+}
