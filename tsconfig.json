@@ -26,14 +26,18 @@
 			"@Controllers": ["src/controllers"],
 			"@Middlewares/*": ["src/middlewares/*"],
 			"@Middlewares": ["src/middlewares"],
-			"@Models/*": ["src/model/*"],
-			"@Models": ["src/model"],
+			"@Models/*": ["src/models/*"],
+			"@Config": ["src/config"],
+			"@Configs/*": ["src/config/*"],
+			"@Models": ["src/models"],
 			"@Routes/*": ["src/routes/*"],
 			"@Routes": ["src/routes"],
 			"@Helpers/*": ["src/helpers/*"],
 			"@Helpers": ["src/helpers"],
 			"@Utility/*": ["src/utils/*"],
-			"@Utility": ["src/utils"]
+			"@Utility": ["src/utils"],
+			"@ServiceHelpers/*": ["src/service-helpers/*"],
+			"@ServiceHelpers": ["src/service-helpers"]
 		}
 	},
 	"include": ["./src/**/*.ts", "./src/index.html", "./src/swagger.json"],

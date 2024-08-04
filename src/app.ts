@@ -3,6 +3,9 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import tenants from '@Routes/tenant.route';
+import login from '@Routes/login.route';
+import users from '@Routes/user.route';
+import otps from '@Routes/otp.route';
 import path from 'path';
 import API from '@Middlewares/api.middleware';
 import * as global from './lib/global';
@@ -51,14 +54,17 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 // server-root
 app.get('/', (req: Request, res: Response) => {
-	res.send(`<html><body>API SERVICE IS RUNNING</body></html>`);
+	res.send(`<html><body>HMLOGISTICS API SERVICE IS RUNNING</body></html>`);
 });
 
 // swagger
 app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // load routes
-app.use('/tenants', tenants);
+app.use('/api/tenants', tenants);
+app.use('/api/login', login);
+app.use('/api/users', users);
+app.use('/api/otps', otps);
 
 // Invalid routes
 app.all('*', (req: Request, res: Response) => {
@@ -68,7 +74,3 @@ app.all('*', (req: Request, res: Response) => {
 app.listen(port, () => {
 	log.info(`server is running on PORT :: ${port}`);
 });
-
-// TODO:
-// generic handlers for db
-// test framework
