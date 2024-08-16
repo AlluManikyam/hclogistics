@@ -2,10 +2,10 @@ import mysql, { RowDataPacket } from 'mysql2/promise';
 
 // Create a connection pool
 export const pool = mysql.createPool({
-	host: 'localhost', // Database host
+	host: '127.0.0.1', // Database host
 	user: 'root', // Database user
-	password: 'password', // Database password
-	database: 'hclogistics', // Your database name
+	password: 'Vasu@2002', // Database password
+	database: 'hcl_test', // Your database name
 	waitForConnections: true, // Wait for connections to be available
 	connectionLimit: 10, // Max number of connections in the pool
 	queueLimit: 0, // Max number of connection requests to queue
