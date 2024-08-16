@@ -10,7 +10,14 @@ export default class UserController {
 	// Create a new user
 	public static async createUser(req: Request, res: Response) {
 		try {
-			const { firstName, lastName, email, mobileNumber, gender, profilePic, userRole, accountStatus } = req.body;
+			const { name, mobileNumber, userRole } = req.body;
+
+			// Check if the mobile number already exists
+			const existingUser = await UserService.findByMobileNumber(mobileNumber);
+
+			if (existingUser) {
+				return SystemHelper.throwError(req, res, 400, 'Mobile number already exists', 'DUPLICATE_MOBILE_NUMBER');
+			}
 
 			// Generate a unique ID for the new user
 			const id = uuidv4();
@@ -19,24 +26,21 @@ export default class UserController {
 
 			const newUser = new User(
 				id,
-				firstName,
-				lastName,
-				email,
+				name,
 				mobileNumber,
-				gender,
-				profilePic,
 				userRole,
-				accountStatus,
+				undefined,
 				undefined, // createdBy
 				createdAt,
 				undefined, // updatedBy
 				updatedAt,
+				false,
 			);
 
 			// Save the new user to the database
 			await UserService.createUser(newUser);
 
-			return SystemHelper.sendResponse(req, res, 201, { user: newUser });
+			return SystemHelper.sendResponse(req, res, 200, { user: newUser });
 		} catch (err) {
 			if (err instanceof Error) {
 				return SystemHelper.throwError(req, res, 500, 'Error creating user', 'CREATE_USER_ERROR', { errorMeta: err.message });
@@ -72,7 +76,7 @@ export default class UserController {
 	public static async updateUser(req: Request, res: Response) {
 		try {
 			const { id } = req.params;
-			const { firstName, lastName, email, mobileNumber, gender, profilePic, userRole, accountStatus } = req.body;
+			const { name, mobileNumber, userRole, accountStatus } = req.body;
 
 			// Fetch user from the database
 			const user = await UserService.getUserById(id);
@@ -81,13 +85,16 @@ export default class UserController {
 				return SystemHelper.throwError(req, res, 404, 'User not found', 'USER_NOT_FOUND');
 			}
 
+			// Check if the mobile number already exists
+			const existingUser = await UserService.findByMobileNumber(mobileNumber);
+
+			if (existingUser && existingUser.id !== id) {
+				return SystemHelper.throwError(req, res, 400, 'Mobile number already in use', 'DUPLICATE_MOBILE_NUMBER');
+			}
+
 			// Update user properties
-			user.firstName = firstName || user.firstName;
-			user.lastName = lastName || user.lastName;
-			user.email = email || user.email;
+			user.name = name || user.name;
 			user.mobileNumber = mobileNumber || user.mobileNumber;
-			user.gender = gender || user.gender;
-			user.profilePic = profilePic || user.profilePic;
 			user.userRole = userRole || user.userRole;
 			user.accountStatus = accountStatus || user.accountStatus;
 			user.updatedAt = new Date();

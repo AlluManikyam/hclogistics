@@ -6,40 +6,30 @@ const router = express.Router();
 
 // Request schemas
 const CreateUserSchema = {
-	firstName: { type: 'string' },
-	lastName: { type: 'string' },
-	email: { type: 'string' },
+	name: { type: 'string' },
 	mobileNumber: { type: 'string' },
-	gender: { type: 'string', optional: true },
-	profilePic: { type: 'string', optional: true },
-	userRole: { type: 'string', optional: true },
-	accountStatus: { type: 'string', optional: true },
+	userRole: { type: 'string' },
 };
 
 const UpdateUserSchema = {
-	firstName: { type: 'string', optional: true },
-	lastName: { type: 'string', optional: true },
-	email: { type: 'string', optional: true },
+	name: { type: 'string', optional: true },
 	mobileNumber: { type: 'string', optional: true },
-	gender: { type: 'string', optional: true },
-	profilePic: { type: 'string', optional: true },
 	userRole: { type: 'string', optional: true },
-	accountStatus: { type: 'string', optional: true },
 };
 
 // Create a new user
-router.post('/', new Auth(CreateUserSchema).validate, UserController.createUser);
+router.post('/create', new Auth(CreateUserSchema).validate, UserController.createUser);
+
+// List all users
+router.get('/list', UserController.listUsers);
 
 // Get a user by ID
 router.get('/:id', UserController.getUser);
 
 // Update a user by ID
-router.put('/:id', new Auth(UpdateUserSchema).validate, UserController.updateUser);
+router.post('/:id', new Auth(UpdateUserSchema).validate, UserController.updateUser);
 
 // Delete a user by ID
-router.delete('/:id', UserController.deleteUser);
-
-// List all users
-router.get('/', UserController.listUsers);
+router.post('/delete/:id', UserController.deleteUser);
 
 export default router;

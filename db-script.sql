@@ -1,4 +1,4 @@
--- hclogistics.roles definition
+-- Create roles table
 CREATE TABLE `roles` (
   `id` varchar(40) NOT NULL,
   `name` varchar(40) DEFAULT NULL,
@@ -11,11 +11,10 @@ CREATE TABLE `roles` (
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
--- hclogistics.users definition
+-- Create users table
 CREATE TABLE `users` (
   `id` varchar(40) NOT NULL,
-  `first_name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `last_name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `email` varchar(120) DEFAULT NULL,
   `mobile_number` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `gender` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -28,41 +27,8 @@ CREATE TABLE `users` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `users_UN_mobile_number` (`mobile_number`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- hclogistics.user_roles definition
-CREATE TABLE `user_roles` (
-  `id` varchar(40) NOT NULL,
-  `user_id` varchar(40) NOT NULL,
-  `role_id` varchar(40) NOT NULL,
-  `created_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `fk_useroles_userId` (`user_id`),
-  KEY `fk_useroles_roleId` (`role_id`),
-  KEY `user_roles_user_id_IDX` (`user_id`, `role_id`) USING BTREE,
-  CONSTRAINT `fk_useroles_roleId` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
-  CONSTRAINT `fk_useroles_userId` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- hclogistics.user_access definition
-CREATE TABLE `user_access` (
-  `id` varchar(40) NOT NULL,
-  `user_id` varchar(40) NOT NULL,
-  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `created_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `fk_user_id_Id_Index` (`user_id`),
-  KEY `user_access_user_id_IDX` (`user_id`) USING BTREE,
-  CONSTRAINT `FK_UserAccess_User` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  -- UNIQUE KEY `users_UN_mobile_number` (`mobile_number`),
+  CONSTRAINT `fk_roles_id` FOREIGN KEY (`user_role`) REFERENCES `roles` (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- hclogistics.otps definition

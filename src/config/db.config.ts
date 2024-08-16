@@ -5,7 +5,7 @@ export const pool = mysql.createPool({
 	host: 'localhost', // Database host
 	user: 'root', // Database user
 	password: 'password', // Database password
-	database: 'your_database_name', // Your database name
+	database: 'hclogistics', // Your database name
 	waitForConnections: true, // Wait for connections to be available
 	connectionLimit: 10, // Max number of connections in the pool
 	queueLimit: 0, // Max number of connection requests to queue

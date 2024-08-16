@@ -2,6 +2,7 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import roles from '@Routes/role.route';
 import tenants from '@Routes/tenant.route';
 import login from '@Routes/login.route';
 import users from '@Routes/user.route';
@@ -61,6 +62,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // load routes
+app.use('/api/roles', roles);
 app.use('/api/tenants', tenants);
 app.use('/api/login', login);
 app.use('/api/users', users);

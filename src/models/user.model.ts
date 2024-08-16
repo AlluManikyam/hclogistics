@@ -1,11 +1,7 @@
 export class User {
 	id: string;
-	firstName?: string;
-	lastName?: string;
-	email?: string;
+	name?: string;
 	mobileNumber?: string;
-	gender?: string;
-	profilePic?: string;
 	userRole?: string;
 	accountStatus: string;
 	createdBy?: string;
@@ -16,14 +12,10 @@ export class User {
 
 	constructor(
 		id: string,
-		firstName?: string,
-		lastName?: string,
-		email?: string,
+		name?: string,
 		mobileNumber?: string,
-		gender?: string,
-		profilePic?: string,
 		userRole?: string,
-		accountStatus: string = '1',
+		accountStatus: string = 'Active',
 		createdBy?: string,
 		createdAt?: Date,
 		updatedBy?: string,
@@ -31,12 +23,8 @@ export class User {
 		deleted: boolean = false,
 	) {
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+		this.name = name;
 		this.mobileNumber = mobileNumber;
-		this.gender = gender;
-		this.profilePic = profilePic;
 		this.userRole = userRole;
 		this.accountStatus = accountStatus;
 		this.createdBy = createdBy;
