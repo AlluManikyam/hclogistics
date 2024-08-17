@@ -6,7 +6,7 @@ export default class LocationService {
 	// Create a new location
 	public static async createLocation(location: Location): Promise<Location> {
 		const query = `INSERT INTO locations (id, name, address, created_by, created_at, updated_by, updated_at, deleted)
-                       VALUES (?, ?, ?, ?, ?, ?, ?,?)`;
+                       VALUES (?, ?, ?, ?, ?, ?, ?,?,?)`;
 		const values = [
 			location.id,
 			location.name,

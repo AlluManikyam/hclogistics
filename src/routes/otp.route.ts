@@ -8,9 +8,6 @@ const router = express.Router();
 // Generate OTP
 router.post('/generate-otp', OTPController.generateOTP);
 
-// Verify OTP
-router.post('/verify-otp', OTPController.verifyOTP);
-
 // Resend OTP
 router.post('/resend-otp', OTPController.resendOTP);
 

@@ -7,7 +7,7 @@ export default class OtpService {
 	// Create a new OTP record
 	public static async createOtp(otp: Otp): Promise<void> {
 		const query = `
-            INSERT INTO otp (id, sendTo, otp, status, sourceType, requestAttempts, validateAttempts, expiryDate, createdBy, createdAt, updatedBy, updatedAt, deleted)
+            INSERT INTO otps (id,send_to,otp,status,source_type,request_attempts,validate_attempts,expiry_date,created_by,created_at,updated_by,updated_at,deleted)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
 
@@ -31,7 +31,7 @@ export default class OtpService {
 
 	// Find OTP by sendTo and status
 	public static async findOtpBySendTo(sendTo: string, status: string): Promise<Otp | null> {
-		const sql = 'SELECT * FROM otp WHERE sendTo = ? AND status = ?';
+		const sql = 'SELECT * FROM otps WHERE send_to = ? AND status = ?';
 		const result = await queryOne(sql, [sendTo, status]);
 
 		if (result) {
@@ -40,35 +40,38 @@ export default class OtpService {
 		return null;
 	}
 
+	// Cancelled OTP
+	public static async updateCancelOtp(sendTo: string): Promise<void> {
+		// Cancel or supersede all previous OTPs for the same sendTo
+		const cancelSql = `
+        UPDATE otps
+        SET status = 'cancelled', updated_at = ?
+        WHERE send_to = ? AND status = 'pending'
+    `;
+		await pool.query(cancelSql, [new Date(), sendTo]);
+	}
+
 	// Update OTP
 	public static async updateOtp(otp: Otp): Promise<void> {
 		const sql = `
-            UPDATE otp
-            SET otp = ?, status = ?, requestAttempts = ?, validateAttempts = ?, expiryDate = ?, updatedBy = ?, updatedAt = ?, deleted = ?
+            UPDATE otps
+            SET otp = ?, status = ?, request_attempts=?, updated_by = ?, updated_at = ?, deleted = ?
             WHERE id = ?
         `;
-		const values = [
-			otp.otp,
-			otp.status,
-			otp.requestAttempts,
-			otp.validateAttempts,
-			otp.expiryDate,
-			otp.updatedBy,
-			otp.updatedAt,
-			otp.deleted,
-			otp.id,
-		];
+		const values = [otp.otp, otp.status, otp.requestAttempts, otp.updatedBy, otp.updatedAt, otp.deleted, otp.id];
 		await pool.query(sql, values);
 	}
 
 	// Resend OTP
 	public static async resendOtp(sendTo: string): Promise<Otp | null> {
-		const otp = await OtpService.findOtpBySendTo(sendTo, 'pending');
+		const otp: any = await OtpService.findOtpBySendTo(sendTo, 'pending');
 
 		if (otp) {
-			otp.requestAttempts += 1;
+			const requestAttempts = otp.request_attempts;
+			otp.requestAttempts = requestAttempts + 1;
 			otp.expiryDate = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes validity
-			otp.otp = Math.floor(100000 + Math.random() * 900000).toString();
+			// otp.otp = Math.floor(100000 + Math.random() * 900000).toString();
+			otp.otp = '123456';
 			otp.updatedAt = new Date();
 
 			await OtpService.updateOtp(otp);

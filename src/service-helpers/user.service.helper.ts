@@ -60,9 +60,11 @@ export default class UserService {
 
 	// Find user by mobile
 	public static async findByMobileNumber(mobile: string): Promise<User | null> {
-		const query = 'SELECT * FROM users WHERE mobile_number = ? and deleted= false';
+		const query = 'SELECT * FROM users WHERE mobile_number = ? and deleted= ? and account_status= ?';
 
-		const user = await queryOne(query, [mobile]);
+		const user = await queryOne(query, [mobile, false, 'Active']);
+
+		console.log(user);
 
 		if (user) {
 			return user as User;

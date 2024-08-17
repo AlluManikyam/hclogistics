@@ -66,7 +66,7 @@ app.use('/api/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/roles', roles);
 app.use('/api/locations', location);
 app.use('/api/tenants', tenants);
-app.use('/api/login', login);
+app.use('/api/auth', login);
 app.use('/api/users', users);
 app.use('/api/otps', otps);
 

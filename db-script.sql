@@ -40,7 +40,7 @@ CREATE TABLE `otps` (
   `source_type` varchar(40) NOT NULL,
   `request_attempts` int NOT NULL,
   `validate_attempts` int NOT NULL,
-  `expiry_date` date DEFAULT NULL,
+  `expiry_date` timestamp DEFAULT NULL,
   `created_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
