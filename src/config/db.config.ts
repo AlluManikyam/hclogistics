@@ -4,7 +4,7 @@ import mysql, { RowDataPacket } from 'mysql2/promise';
 export const pool = mysql.createPool({
 	host: 'localhost', // Database host
 	user: 'root', // Database user
-	password: 'password', // Database password
+	password: 'Vasu@2002', // Database password
 	database: 'hclogistics', // Your database name
 	waitForConnections: true, // Wait for connections to be available
 	connectionLimit: 100, // Max number of connections in the pool

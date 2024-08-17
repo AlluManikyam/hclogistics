@@ -10,7 +10,7 @@ export default class LocationController {
 	// Create a new location
 	public static async createLocation(req: Request, res: Response) {
 		try {
-			const { name } = req.body;
+			const { name, address } = req.body;
 
 			// Check if the name already exists
 			const existingLocation = await LocationService.findByName(name);
@@ -24,7 +24,7 @@ export default class LocationController {
 			const createdAt = new Date(); // Use Date object
 			const updatedAt = new Date(); // Use Date object
 
-			const newLocation = new Location(id, name, undefined, undefined, createdAt, undefined, updatedAt, false);
+			const newLocation = new Location(id, name, address, undefined, createdAt, undefined, updatedAt, false);
 
 			// Save the new location to the database
 			await LocationService.createLocation(newLocation);
@@ -69,7 +69,7 @@ export default class LocationController {
 	public static async updateLocation(req: Request, res: Response) {
 		try {
 			const { id } = req.params;
-			const { name } = req.body;
+			const { name, address } = req.body;
 
 			// Check if the name already exists
 			const existingLocation = await LocationService.findByName(name);
@@ -86,6 +86,7 @@ export default class LocationController {
 
 			// Update location properties
 			location.name = name || location.name;
+			location.address = address || location.address;
 			location.updatedBy = location.updatedBy;
 			location.updatedAt = new Date();
 

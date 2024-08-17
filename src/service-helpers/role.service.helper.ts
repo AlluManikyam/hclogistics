@@ -6,7 +6,7 @@ export default class RoleService {
 	// Create a new role
 	public static async createRole(role: Role): Promise<Role> {
 		const query = `INSERT INTO roles (id, name, created_by, created_at, updated_by, updated_at, deleted)
-                       VALUES (?, ?, ?, ?, ?, ?, ?,?)`;
+                       VALUES (?, ?, ?, ?, ?, ?, ?)`;
 		const values = [role.id, role.name, role.createdBy, role.createdAt, role.updatedBy, role.updatedAt, role.deleted];
 
 		await pool.query(query, values);
@@ -42,7 +42,7 @@ export default class RoleService {
 
 	// List all roles
 	public static async listRoles(): Promise<Role[]> {
-		const query = `SELECT * FROM roles`;
+		const query = `SELECT * FROM roles WHERE deleted=false`;
 		const [rows] = await pool.query<RowDataPacket[]>(query);
 		return rows as Role[];
 	}
