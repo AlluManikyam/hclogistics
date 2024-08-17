@@ -83,3 +83,17 @@ CREATE TABLE `user_sessions` (
   KEY `user_session_fk` (`user_id`),
   CONSTRAINT `user_session_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+-- Create locations table
+CREATE TABLE `locations` (
+  `id` varchar(40) NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `created_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
