@@ -1,0 +1,394 @@
+{
+	"collection": {
+		"info": {
+			"_postman_id": "f1fa4cd2-ecbd-4373-93ac-c99098992ca9",
+			"name": "hclogistics",
+			"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+			"updatedAt": "2024-09-07T07:47:15.000Z",
+			"createdAt": "2024-09-07T07:47:15.000Z",
+			"lastUpdatedBy": "3039462",
+			"uid": "3039462-f1fa4cd2-ecbd-4373-93ac-c99098992ca9"
+		},
+		"item": [
+			{
+				"name": "Users",
+				"item": [
+					{
+						"name": "createUser",
+						"id": "3d059e1d-752f-4f09-9b81-cdee039579fd",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": {
+								"mode": "raw",
+								"raw": "{\r\n  \"name\": \"John\",\r\n  \"mobileNumber\": \"9441136987\",\r\n  \"userRole\": \"20ab54cc-db9e-4ac2-931c-2c6e914f3c4f\"\r\n}",
+								"options": { "raw": { "language": "json" } }
+							},
+							"url": {
+								"raw": "http://localhost:5001/api/users/create",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "users", "create"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-3d059e1d-752f-4f09-9b81-cdee039579fd"
+					},
+					{
+						"name": "getUserById",
+						"id": "19521d04-a7e3-471e-845d-8d7b481f21ce",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "GET",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/users/c35e753d-dba4-4be0-ab00-e79bfe0ff371",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "users", "c35e753d-dba4-4be0-ab00-e79bfe0ff371"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-19521d04-a7e3-471e-845d-8d7b481f21ce"
+					},
+					{
+						"name": "getUserList",
+						"id": "94b05f14-b005-4432-9806-6483021c06e3",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "GET",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/users/list",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "users", "list"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-94b05f14-b005-4432-9806-6483021c06e3"
+					},
+					{
+						"name": "updateUser",
+						"id": "3b4724b8-302b-4b45-ab05-0601b8ce2c4d",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "{\r\n  \"accountStatus\": \"InActive\"\r\n}", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/users/c35e753d-dba4-4be0-ab00-e79bfe0ff371",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "users", "c35e753d-dba4-4be0-ab00-e79bfe0ff371"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-3b4724b8-302b-4b45-ab05-0601b8ce2c4d"
+					},
+					{
+						"name": "deleteUser",
+						"id": "f7d9e58f-81bc-4d4c-8c9f-fdceb80719d6",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/users/delete/1d9ea576-28be-4e8a-938b-b260efb65090",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "users", "delete", "1d9ea576-28be-4e8a-938b-b260efb65090"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-f7d9e58f-81bc-4d4c-8c9f-fdceb80719d6"
+					}
+				],
+				"id": "e94b7ad6-f226-42fd-99f2-0816603ba6b2",
+				"uid": "3039462-e94b7ad6-f226-42fd-99f2-0816603ba6b2"
+			},
+			{
+				"name": "Roles",
+				"item": [
+					{
+						"name": "createRole",
+						"id": "be702305-9287-419d-b070-caf03e8ee7da",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "{\r\n  \"name\": \"Super Admin\"\r\n}", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/roles/create",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "roles", "create"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-be702305-9287-419d-b070-caf03e8ee7da"
+					},
+					{
+						"name": "getRoleById",
+						"id": "3666ce19-815c-454c-b889-fa3249f85159",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "GET",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/roles/20ab54cc-db9e-4ac2-931c-2c6e914f3c4f",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "roles", "20ab54cc-db9e-4ac2-931c-2c6e914f3c4f"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-3666ce19-815c-454c-b889-fa3249f85159"
+					},
+					{
+						"name": "getRoleList",
+						"id": "eaf9a082-9191-456d-a10c-ea82931579e8",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "GET",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/roles/list",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "roles", "list"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-eaf9a082-9191-456d-a10c-ea82931579e8"
+					},
+					{
+						"name": "updateRole",
+						"id": "a688d3a2-e5c5-441e-b811-7cb090ce6236",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "{\r\n  \"name\": \"Admin\"\r\n}", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/roles/20ab54cc-db9e-4ac2-931c-2c6e914f3c4f",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "roles", "20ab54cc-db9e-4ac2-931c-2c6e914f3c4f"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-a688d3a2-e5c5-441e-b811-7cb090ce6236"
+					},
+					{
+						"name": "deleteRole",
+						"id": "36522842-2d67-4df9-8b84-a7343a5ce902",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/users/delete/1d9ea576-28be-4e8a-938b-b260efb65090",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "users", "delete", "1d9ea576-28be-4e8a-938b-b260efb65090"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-36522842-2d67-4df9-8b84-a7343a5ce902"
+					}
+				],
+				"id": "7a02af59-bc43-4325-af63-34b1fcd726d1",
+				"uid": "3039462-7a02af59-bc43-4325-af63-34b1fcd726d1"
+			},
+			{
+				"name": "Auth",
+				"item": [
+					{
+						"name": "ValidateUser",
+						"id": "394c847e-9d39-4c9a-ba0d-aa6181a2cac5",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "{\r\n    \"mobileNumber\": \"9441136987\"\r\n}", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/auth/validate-user",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "auth", "validate-user"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-394c847e-9d39-4c9a-ba0d-aa6181a2cac5"
+					},
+					{
+						"name": "Login",
+						"id": "bb7193e0-51c5-4afd-8b45-cafdbf803048",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": {
+								"mode": "raw",
+								"raw": "{\r\n    \"mobileNumber\":\"9441136987\",\r\n    \"otpValue\":\"123456\"\r\n}",
+								"options": { "raw": { "language": "json" } }
+							},
+							"url": {
+								"raw": "http://localhost:5001/api/auth/login",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "auth", "login"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-bb7193e0-51c5-4afd-8b45-cafdbf803048"
+					},
+					{
+						"name": "Resend OTP",
+						"id": "b962e0ef-644f-4771-8c09-1cb049ff123f",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": { "mode": "raw", "raw": "{\r\n    \"mobileNumber\":\"9441136987\"\r\n}", "options": { "raw": { "language": "json" } } },
+							"url": {
+								"raw": "http://localhost:5001/api/otps/resend-otp",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5000",
+								"path": ["api", "otps", "resend-otp"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-b962e0ef-644f-4771-8c09-1cb049ff123f"
+					}
+				],
+				"id": "4baffa32-3df7-4f69-ad44-7cb4a431c467",
+				"uid": "3039462-4baffa32-3df7-4f69-ad44-7cb4a431c467"
+			},
+			{
+				"name": "Locations",
+				"item": [
+					{
+						"name": "Create Location",
+						"id": "1a65d29c-b326-4125-824d-400ff606f0a0",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": {
+								"mode": "raw",
+								"raw": "{\r\n    \"name\":\"Vizag\",\r\n    \"latitude\":\"123\",\r\n    \"longitude\":\"456\",\r\n    \"address\":\"Vizag\"\r\n}",
+								"options": { "raw": { "language": "json" } }
+							},
+							"url": {
+								"raw": "http://localhost:5001/api/locations/create",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "locations", "create"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-1a65d29c-b326-4125-824d-400ff606f0a0"
+					},
+					{
+						"name": "Get All Locations",
+						"id": "abffd8b7-54eb-4f5c-a814-a1ae5fcfda1e",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "GET",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/locations/list",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "locations", "list"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-abffd8b7-54eb-4f5c-a814-a1ae5fcfda1e"
+					},
+					{
+						"name": "Get Location By Id",
+						"id": "e4607c81-1282-471d-a869-26ee03833d24",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "GET",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/locations/4d4fee7f-ec7e-47b8-854b-727ed7312db0",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "locations", "4d4fee7f-ec7e-47b8-854b-727ed7312db0"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-e4607c81-1282-471d-a869-26ee03833d24"
+					},
+					{
+						"name": "Update Location",
+						"id": "306bffc2-d3a2-4775-8b67-b4216c7d34df",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"body": {
+								"mode": "raw",
+								"raw": "{\r\n    \"name\":\"Tuni\",\r\n    \"latitude\":\"1234\",\r\n    \"longitude\":\"4567\",\r\n    \"address\":\"Gajuwaka\"\r\n}",
+								"options": { "raw": { "language": "json" } }
+							},
+							"url": {
+								"raw": "http://localhost:5001/api/locations/4d4fee7f-ec7e-47b8-854b-727ed7312db0",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "locations", "4d4fee7f-ec7e-47b8-854b-727ed7312db0"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-306bffc2-d3a2-4775-8b67-b4216c7d34df"
+					},
+					{
+						"name": "Delete Location",
+						"id": "760f33b1-7014-47b9-8cec-7fe088c06af1",
+						"protocolProfileBehavior": { "disableBodyPruning": true },
+						"request": {
+							"method": "POST",
+							"header": [],
+							"url": {
+								"raw": "http://localhost:5001/api/locations/delete/0dc2486d-fbb7-4a8f-9056-436552e8725e",
+								"protocol": "http",
+								"host": ["localhost"],
+								"port": "5001",
+								"path": ["api", "locations", "delete", "0dc2486d-fbb7-4a8f-9056-436552e8725e"]
+							}
+						},
+						"response": [],
+						"uid": "3039462-760f33b1-7014-47b9-8cec-7fe088c06af1"
+					}
+				],
+				"id": "a8f2b305-9e53-4ef8-a0d8-1ba99c0b41c6",
+				"uid": "3039462-a8f2b305-9e53-4ef8-a0d8-1ba99c0b41c6"
+			}
+		]
+	}
+}

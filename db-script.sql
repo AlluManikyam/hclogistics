@@ -99,3 +99,27 @@ CREATE TABLE `locations` (
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+-- hclogistics_dev.trips definition
+CREATE TABLE `trips` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `slno` varchar(255) NOT NULL,
+  `vehicle_no` varchar(50) NOT NULL,
+  `status` enum('pending', 'completed') NOT NULL,
+  `pickup_location` varchar(255) NOT NULL,
+  `transporter_name` varchar(100) NOT NULL,
+  `product_type` varchar(100) NOT NULL,
+  `product_weight` decimal(10, 2) NOT NULL,
+  `product_bill_image` varchar(255) DEFAULT NULL,
+  `pickup_product_location_image` varchar(255) DEFAULT NULL,
+  `pickup_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `pick_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `drop_location` varchar(255) DEFAULT NULL,
+  `drop_product_location_image` varchar(255) DEFAULT NULL,
+  `drop_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `drop_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slno` (`slno`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
