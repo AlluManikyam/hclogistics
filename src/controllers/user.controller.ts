@@ -79,7 +79,7 @@ export default class UserController {
 			const { name, mobileNumber, userRole, accountStatus } = req.body;
 
 			// Fetch user from the database
-			const user = await UserService.getUserById(id);
+			const user: any = await UserService.getUserById(id);
 
 			if (!user) {
 				return SystemHelper.throwError(req, res, 404, 'User not found', 'USER_NOT_FOUND');
@@ -94,15 +94,17 @@ export default class UserController {
 
 			// Update user properties
 			user.name = name || user.name;
-			user.mobileNumber = mobileNumber || user.mobileNumber;
-			user.userRole = userRole || user.userRole;
-			user.accountStatus = accountStatus || user.accountStatus;
+			user.mobileNumber = mobileNumber || user.mobile_number;
+			user.userRole = userRole || user.user_role;
+			user.accountStatus = accountStatus || user.account_status;
 			user.updatedAt = new Date();
 
 			// Save the updated user to the database
 			await UserService.updateUser(user);
 
-			return SystemHelper.sendResponse(req, res, 200, { user });
+			const updatedUser = await UserService.getUserById(id);
+
+			return SystemHelper.sendResponse(req, res, 200, { user: updatedUser });
 		} catch (err) {
 			if (err instanceof Error) {
 				return SystemHelper.throwError(req, res, 500, 'Error updating user', 'UPDATE_USER_ERROR', { errorMeta: err.message });

@@ -84,11 +84,13 @@ CREATE TABLE `user_sessions` (
   CONSTRAINT `user_session_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
--- Create locations table
+-- hclogistics_dev.locations definition
 CREATE TABLE `locations` (
   `id` varchar(40) NOT NULL,
   `name` varchar(40) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
+  `latitude` varchar(5000) DEFAULT NULL,
+  `longitude` varchar(5000) DEFAULT NULL,
+  `address` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL,
   `created_by` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

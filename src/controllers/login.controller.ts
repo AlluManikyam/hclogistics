@@ -76,7 +76,9 @@ export default class LoginController {
 				// Generate JWT token
 				const token = jwt.sign({ id: user.id, mobileNumber: user.mobileNumber }, JWT_SECRET, { expiresIn: '1h' });
 
-				return SystemHelper.sendResponse(req, res, 200, { token, user });
+				const userInfo = await UserService.getUserById(user.id);
+
+				return SystemHelper.sendResponse(req, res, 200, { token, user: userInfo });
 			} else {
 				return SystemHelper.throwError(req, res, 401, 'Invalid or expired OTP', 'INVALID_OTP');
 			}

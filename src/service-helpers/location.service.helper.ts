@@ -5,11 +5,13 @@ import { ResultSetHeader, RowDataPacket } from 'mysql2';
 export default class LocationService {
 	// Create a new location
 	public static async createLocation(location: Location): Promise<Location> {
-		const query = `INSERT INTO locations (id, name, address, created_by, created_at, updated_by, updated_at, deleted)
-                       VALUES (?, ?, ?, ?, ?, ?, ?,?)`;
+		const query = `INSERT INTO locations (id, name, latitude, longitude, address, created_by, created_at, updated_by, updated_at, deleted)
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)`;
 		const values = [
 			location.id,
 			location.name,
+			location.latitude,
+			location.longitude,
 			location.address,
 			location.createdBy,
 			location.createdAt,
@@ -32,9 +34,18 @@ export default class LocationService {
 	// Update a location by ID
 	public static async updateLocation(location: Location): Promise<Location | null> {
 		const query = `UPDATE locations
-                       SET name = ?, address = ?, updated_by = ?, updated_at = ?, deleted = ?
+                       SET name = ?, latitude = ?, longitude = ?, address = ?, updated_by = ?, updated_at = ?, deleted = ?
                        WHERE id = ?`;
-		const values = [location.name, location.address, location.updatedBy, location.updatedAt, location.deleted, location.id];
+		const values = [
+			location.name,
+			location.latitude,
+			location.longitude,
+			location.address,
+			location.updatedBy,
+			location.updatedAt,
+			location.deleted,
+			location.id,
+		];
 
 		const [result] = await pool.query<ResultSetHeader>(query, values);
 		const affectedRows = result.affectedRows;

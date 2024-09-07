@@ -10,7 +10,7 @@ export default class LocationController {
 	// Create a new location
 	public static async createLocation(req: Request, res: Response) {
 		try {
-			const { name, address } = req.body;
+			const { name, latitude, longitude, address } = req.body;
 
 			// Check if the name already exists
 			const existingLocation = await LocationService.findByName(name);
@@ -24,7 +24,7 @@ export default class LocationController {
 			const createdAt = new Date(); // Use Date object
 			const updatedAt = new Date(); // Use Date object
 
-			const newLocation = new Location(id, name, address, undefined, createdAt, undefined, updatedAt, false);
+			const newLocation = new Location(id, name, latitude, longitude, address, undefined, createdAt, undefined, updatedAt, false);
 
 			// Save the new location to the database
 			await LocationService.createLocation(newLocation);
@@ -69,7 +69,7 @@ export default class LocationController {
 	public static async updateLocation(req: Request, res: Response) {
 		try {
 			const { id } = req.params;
-			const { name, address } = req.body;
+			const { name, latitude, longitude, address } = req.body;
 
 			// Check if the name already exists
 			const existingLocation = await LocationService.findByName(name);
@@ -81,12 +81,14 @@ export default class LocationController {
 			const location = await LocationService.getLocationById(id);
 
 			if (!location) {
-				return SystemHelper.throwError(req, res, 404, 'Role not found', 'ROLE_NOT_FOUND');
+				return SystemHelper.throwError(req, res, 404, 'Location not found', 'LOCATION_NOT_FOUND');
 			}
 
 			// Update location properties
 			location.name = name || location.name;
 			location.address = address || location.address;
+			location.latitude, latitude || location.latitude;
+			location.longitude = longitude || location.longitude;
 			location.updatedBy = location.updatedBy;
 			location.updatedAt = new Date();
 
