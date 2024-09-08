@@ -102,7 +102,7 @@ CREATE TABLE `locations` (
 
 -- hclogistics_dev.trips definition
 CREATE TABLE `trips` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` varchar(40) NOT NULL,
   `slno` varchar(255) NOT NULL,
   `vehicle_no` varchar(50) NOT NULL,
   `status` enum('pending', 'completed') NOT NULL,

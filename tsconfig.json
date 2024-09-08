@@ -40,7 +40,12 @@
 			"@ServiceHelpers": ["src/service-helpers"]
 		}
 	},
-	"include": ["./src/**/*.ts", "./src/index.html", "./src/swagger.json"],
+	"include": [
+		"./src/**/*.ts",
+		"./src/index.html",
+		"./src/swagger.json",
+		"./src/types/custom.d.ts" // Add this line if needed
+	],
 	"exclude": ["node_modules"]
 	// TODO: include unit test framework
 }

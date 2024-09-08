@@ -10,18 +10,16 @@ export default class TripController {
 	// Create a new trip
 	public static async createTrip(req: Request, res: Response) {
 		try {
+			const userId = req.user?.id || '-1';
 			const {
 				slno,
 				vehicleNo,
-				status,
 				pickupLocation,
 				transporterName,
 				productType,
 				productWeight,
 				productBillImage,
 				pickupProductLocationImage,
-				pickBy,
-				pickupDate,
 				dropLocation,
 			} = req.body;
 
@@ -39,15 +37,15 @@ export default class TripController {
 				id, // Auto-incremented
 				slno,
 				vehicleNo,
-				status,
+				'pending',
 				pickupLocation,
 				transporterName,
 				productType,
 				productWeight,
 				productBillImage,
 				pickupProductLocationImage,
-				pickupDate || new Date(),
-				pickBy,
+				new Date(), // Pickup date
+				userId,
 				dropLocation,
 				undefined, // Drop-related fields are left out
 				undefined,
@@ -139,6 +137,8 @@ export default class TripController {
 
 			// Check if the slno already exists and is not the current trip
 			const existingTrip = await TripService.findBySlNo(slno);
+
+			console.log(existingTrip);
 
 			if (existingTrip && existingTrip.id !== id) {
 				return SystemHelper.throwError(req, res, 400, 'Trip SLNo already in use', 'DUPLICATE_SLNO');

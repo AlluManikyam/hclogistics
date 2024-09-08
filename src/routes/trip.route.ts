@@ -1,4 +1,5 @@
 import TripController from '@Controllers/trip.controller'; // Adjust import path as necessary
+import { validateJWT } from '@Middlewares/api.middleware';
 import Auth from '@Middlewares/auth.middleware'; // Adjust import path as necessary
 import express from 'express';
 
@@ -36,7 +37,7 @@ const UpdateTripSchema = {
 };
 
 // Create a new trip
-router.post('/create', new Auth(CreateTripSchema).validate, TripController.createTrip);
+router.post('/create', validateJWT, new Auth(CreateTripSchema).validate, TripController.createTrip);
 
 // List all trips
 router.get('/list', TripController.listTrips);
@@ -48,7 +49,7 @@ router.get('/:slno', TripController.getTripBySlno);
 router.post('/update/trip-status/:slno', new Auth(UpdateTripSchema).validate, TripController.updateTripStatus);
 
 // Update a trip by SLNo
-router.post('/update/:slno', TripController.updateTrip);
+router.post('/update/:id', TripController.updateTrip);
 
 // Delete a trip by SLNo
 router.post('/delete/:slno', TripController.deleteTrip);
