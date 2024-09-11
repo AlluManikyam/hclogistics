@@ -2,7 +2,7 @@ import API, { OutGoingResponseType } from '@Middlewares/api.middleware';
 import { EventListener } from '@Utility/event-listener';
 import { Request, Response } from 'express';
 import moment from 'moment';
-
+import { v4 as uuidv4 } from 'uuid';
 export class SystemHelper {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	public static broadcastEvent(eventName: string, payload: any) {
@@ -29,4 +29,51 @@ export class SystemHelper {
 			.utc()
 			.format('DD-MM-YYYY HH:mm:ss');
 	}
+
+	public static getUUID(): string {
+		return uuidv4();
+	}
+
+	public static checkUrl(targetString: string): boolean {
+		if (!targetString) return true;
+
+		const urlPattern = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+		return urlPattern.test(targetString);
+	}
+
+	public static checkAndExtractDataURL(dataUrl, contentType = 'image/jpeg') {
+		let base64Url = '';
+
+		if (dataUrl.split(',').length <= 1) {
+			base64Url = dataUrl.split(',')[0];
+			return { base64Url, contentType };
+		}
+
+		base64Url = dataUrl.split(',')[1];
+		contentType = dataUrl
+			.split(',')[0]
+			.split(':')[1]
+			.split(';')[0];
+
+		return { base64Url, contentType };
+	}
+
+	public static isBase64DataUrl = url => {
+		// Check if URL starts with 'data:'
+		if (!url.startsWith('data:')) {
+			return false;
+		}
+
+		// Extract the part after 'data:'
+		const base64Part = url.split(',')[1];
+		if (!base64Part) {
+			return false;
+		}
+
+		// Base64 pattern to match
+		const base64Pattern = /^[A-Za-z0-9+/=]+$/;
+
+		// Check if the string is Base64 encoded
+		return base64Pattern.test(base64Part) && base64Part.length % 4 === 0;
+	};
 }

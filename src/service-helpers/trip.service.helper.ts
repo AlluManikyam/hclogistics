@@ -6,6 +6,7 @@ export default class TripService {
 	// Create a new trip
 	public static async createTrip(trip: Trip): Promise<Trip> {
 		const query = `INSERT INTO trips (
+		  id,
 			slno,
 			vehicle_no,
 			status,
@@ -20,9 +21,10 @@ export default class TripService {
 			drop_location,
 			created_at,
 			updated_at
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
 		const values = [
+			trip.id,
 			trip.slno,
 			trip.vehicleNo,
 			trip.status,

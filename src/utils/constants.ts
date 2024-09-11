@@ -10,4 +10,8 @@ export class Constants {
 		BAD_REQUEST_PARAMS: 'BAD_REQUEST_PARAMS',
 		SERVICE_ERROR: 'SERVICE_ERROR',
 	};
+
+	public static Aws = {
+		BUCKET: 'hclogistics-data',
+	};
 }

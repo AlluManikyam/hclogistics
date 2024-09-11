@@ -39,7 +39,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use(cors());
 
 // body-parser
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '150mb' })); // Increase the limit to 150 MB
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // set default logger

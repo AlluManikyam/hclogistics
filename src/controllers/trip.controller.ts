@@ -3,6 +3,8 @@ import { Trip } from '@Models/trip.model'; // Adjust import path as necessary
 import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
 import { v4 as uuidv4 } from 'uuid';
 import TripService from '@ServiceHelpers/trip.service.helper'; // Adjust import path as necessary
+import { getS3Url } from '@Helpers/aws-helpter';
+import { Constants } from '@Utility/constants';
 
 export default class TripController {
 	constructor() {}
@@ -30,11 +32,17 @@ export default class TripController {
 				return SystemHelper.throwError(req, res, 400, 'Trip SLNo already exists', 'DUPLICATE_SLNO');
 			}
 
+			const productBillImageUrl = productBillImage ? await getS3Url(productBillImage, `trip_${slno}-product-bill-image`, Constants.Aws.BUCKET) : '';
+
+			const pickupProductLocationImageUrl = pickupProductLocationImage
+				? await getS3Url(pickupProductLocationImage, `trip_${slno}-product-location-image`, Constants.Aws.BUCKET)
+				: '';
+
 			const id = uuidv4();
 
 			// Create new trip
 			const newTrip = new Trip(
-				id, // Auto-incremented
+				id,
 				slno,
 				vehicleNo,
 				'pending',
@@ -42,8 +50,8 @@ export default class TripController {
 				transporterName,
 				productType,
 				productWeight,
-				productBillImage,
-				pickupProductLocationImage,
+				productBillImageUrl,
+				pickupProductLocationImageUrl,
 				new Date(), // Pickup date
 				userId,
 				dropLocation,
@@ -138,8 +146,6 @@ export default class TripController {
 			// Check if the slno already exists and is not the current trip
 			const existingTrip = await TripService.findBySlNo(slno);
 
-			console.log(existingTrip);
-
 			if (existingTrip && existingTrip.id !== id) {
 				return SystemHelper.throwError(req, res, 400, 'Trip SLNo already in use', 'DUPLICATE_SLNO');
 			}
@@ -151,6 +157,14 @@ export default class TripController {
 				return SystemHelper.throwError(req, res, 404, 'Trip not found', 'TRIP_NOT_FOUND');
 			}
 
+			const productBillImageUrl = SystemHelper.isBase64DataUrl(productBillImage)
+				? await getS3Url(productBillImage, `trip_${slno}-product-bill-image`, Constants.Aws.BUCKET)
+				: trip.productBillImage;
+
+			const pickupProductLocationImageUrl = SystemHelper.isBase64DataUrl(pickupProductLocationImage)
+				? await getS3Url(pickupProductLocationImage, `trip_${slno}-product-location-image`, Constants.Aws.BUCKET)
+				: trip.pickupProductLocationImage;
+
 			// Update trip properties
 			trip.slno = slno || trip.slno;
 			trip.vehicleNo = vehicleNo || trip.vehicleNo;
@@ -159,8 +173,8 @@ export default class TripController {
 			trip.transporterName = transporterName || trip.transporterName;
 			trip.productType = productType || trip.productType;
 			trip.productWeight = productWeight || trip.productWeight;
-			trip.productBillImage = productBillImage || trip.productBillImage;
-			trip.pickupProductLocationImage = pickupProductLocationImage || trip.pickupProductLocationImage;
+			trip.productBillImage = productBillImageUrl;
+			trip.pickupProductLocationImage = pickupProductLocationImageUrl;
 			trip.pickupDate = pickupDate || trip.pickupDate;
 			trip.pickBy = pickBy || trip.pickBy;
 			trip.updatedAt = new Date();
@@ -184,7 +198,7 @@ export default class TripController {
 	public static async updateTripStatus(req: Request, res: Response) {
 		try {
 			const { slno } = req.params;
-			const { dropProductLocationImage, dropBy, dropDate } = req.body;
+			const { dropProductLocationImage, dropBy } = req.body;
 
 			// Check if the slno already exists and is not the current trip
 			const existingTrip = await TripService.findBySlNo(slno);
