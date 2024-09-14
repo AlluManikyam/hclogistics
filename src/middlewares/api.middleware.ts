@@ -18,7 +18,7 @@ export interface ErrorResponseType {
 	errorData: any;
 }
 
-export const validateJWT = (req: Request, res: Response, next: NextFunction) => {
+export const validateUser = (req: Request, res: Response, next: NextFunction) => {
 	const authHeader = req.headers['authorization'];
 
 	if (!authHeader) {

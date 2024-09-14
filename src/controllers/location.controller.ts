@@ -10,6 +10,8 @@ export default class LocationController {
 	// Create a new location
 	public static async createLocation(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
+
 			const { name, latitude, longitude, address } = req.body;
 
 			// Check if the name already exists
@@ -24,7 +26,7 @@ export default class LocationController {
 			const createdAt = new Date(); // Use Date object
 			const updatedAt = new Date(); // Use Date object
 
-			const newLocation = new Location(id, name, latitude, longitude, address, undefined, createdAt, undefined, updatedAt, false);
+			const newLocation = new Location(id, name, latitude, longitude, address, userId, createdAt, userId, updatedAt, false);
 
 			// Save the new location to the database
 			await LocationService.createLocation(newLocation);
@@ -68,6 +70,8 @@ export default class LocationController {
 	// Update a location by ID
 	public static async updateLocation(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
+
 			const { id } = req.params;
 			const { name, latitude, longitude, address } = req.body;
 
@@ -89,7 +93,7 @@ export default class LocationController {
 			location.address = address || location.address;
 			location.latitude, latitude || location.latitude;
 			location.longitude = longitude || location.longitude;
-			location.updatedBy = location.updatedBy;
+			location.updatedBy = userId || location.updatedBy;
 			location.updatedAt = new Date();
 
 			// Save the updated location to the database

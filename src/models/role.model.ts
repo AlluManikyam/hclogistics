@@ -14,6 +14,6 @@ export class Role {
 		this.createdAt = createdAt || new Date();
 		this.updatedBy = updatedBy;
 		this.updatedAt = updatedAt || new Date();
-		this.deleted = deleted;
+		this.deleted = deleted || false;
 	}
 }

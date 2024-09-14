@@ -1,5 +1,5 @@
 import TripController from '@Controllers/trip.controller'; // Adjust import path as necessary
-import { validateJWT } from '@Middlewares/api.middleware';
+import { validateUser } from '@Middlewares/api.middleware';
 import Auth from '@Middlewares/auth.middleware'; // Adjust import path as necessary
 import express from 'express';
 
@@ -37,21 +37,21 @@ const UpdateTripSchema = {
 };
 
 // Create a new trip
-router.post('/create', validateJWT, new Auth(CreateTripSchema).validate, TripController.createTrip);
+router.post('/create', validateUser, new Auth(CreateTripSchema).validate, TripController.createTrip);
 
 // List all trips
-router.get('/list', TripController.listTrips);
+router.get('/list', validateUser, TripController.listTrips);
 
 // Get a trip by SLNo
-router.get('/:slno', TripController.getTripBySlno);
+router.get('/:slno', validateUser, TripController.getTripBySlno);
 
 // Update a trip status by SLNo
-router.post('/update/trip-status/:slno', new Auth(UpdateTripSchema).validate, TripController.updateTripStatus);
+router.post('/update/trip-status/:slno', validateUser, new Auth(UpdateTripSchema).validate, TripController.updateTripStatus);
 
 // Update a trip by SLNo
-router.post('/update/:id', TripController.updateTrip);
+router.post('/update/:id', validateUser, TripController.updateTrip);
 
 // Delete a trip by SLNo
-router.post('/delete/:slno', TripController.deleteTrip);
+router.post('/delete/:slno', validateUser, TripController.deleteTrip);
 
 export default router;

@@ -20,8 +20,9 @@ export default class TripService {
 			pick_by,
 			drop_location,
 			created_at,
-			updated_at
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+			updated_at,
+			deleted
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
 		const values = [
 			trip.id,
@@ -39,6 +40,7 @@ export default class TripService {
 			trip.dropLocation,
 			trip.createdAt,
 			trip.updatedAt,
+			trip.deleted,
 		];
 
 		await pool.query(query, values);
@@ -55,7 +57,9 @@ export default class TripService {
 	// Update a trip by ID
 	public static async updateTrip(trip: Trip): Promise<Trip | null> {
 		const query = `UPDATE trips
-                       SET slno = ?, vehicle_no = ?, status = ?, pickup_location = ?, transporter_name = ?, product_type = ?, product_weight = ?, product_bill_image = ?, pickup_product_location_image = ?, pickup_date = ?, pick_by = ?, updated_at = ?
+                       SET slno = ?, vehicle_no = ?, status = ?, pickup_location = ?, transporter_name = ?,
+											 product_type = ?, product_weight = ?, product_bill_image = ?, pickup_product_location_image = ?,
+											 pickup_date = ?, pick_by = ?, drop_location=?, updated_at = ?
                        WHERE id = ?`;
 		const values = [
 			trip.slno,
@@ -69,9 +73,22 @@ export default class TripService {
 			trip.pickupProductLocationImage,
 			trip.pickupDate,
 			trip.pickBy,
+			trip.dropLocation,
 			trip.updatedAt,
 			trip.id,
 		];
+
+		const [result] = await pool.query<ResultSetHeader>(query, values);
+		const affectedRows = result.affectedRows;
+		return affectedRows > 0 ? trip : null;
+	}
+
+	// Update a trip status by slno
+	public static async updateTripStatus(trip: Trip): Promise<Trip | null> {
+		const query = `UPDATE trips
+                       SET drop_product_location_image = ?,  status = ?, drop_by = ?, drop_date = ?, updated_at = ?
+                       WHERE id = ?`;
+		const values = [trip.dropProductLocationImage, trip.status, trip.dropBy, trip.dropDate, trip.updatedAt, trip.id];
 
 		const [result] = await pool.query<ResultSetHeader>(query, values);
 		const affectedRows = result.affectedRows;
@@ -95,7 +112,26 @@ export default class TripService {
 
 	// Find trip by SLNo
 	public static async findBySlNo(slno: string): Promise<Trip | null> {
-		const query = 'SELECT * FROM trips WHERE slno = ?';
+		const query = `
+        SELECT
+            t.*,
+            -- Pickup location info
+            pickupInfo.id AS pickup_location_id,
+            pickupInfo.name AS pickup_location_name,
+            pickupInfo.latitude AS pickup_location_latitude,
+            pickupInfo.longitude AS pickup_location_longitude,
+            pickupInfo.address AS pickup_location_address,
+            -- Drop location info
+            dropInfo.id AS drop_location_id,
+            dropInfo.name AS drop_location_name,
+            dropInfo.latitude AS drop_location_latitude,
+            dropInfo.longitude AS drop_location_longitude,
+            dropInfo.address AS drop_location_address
+        FROM trips t
+        JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
+        JOIN locations dropInfo ON t.drop_location = dropInfo.id
+        WHERE t.slno = ?`;
+
 		const trip = await queryOne(query, [slno]);
 
 		if (trip) {

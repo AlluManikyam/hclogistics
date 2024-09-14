@@ -17,6 +17,7 @@ export class Trip {
 	dropBy?: string;
 	createdAt: Date;
 	updatedAt: Date;
+	deleted?: boolean;
 
 	constructor(
 		id: string,
@@ -37,6 +38,7 @@ export class Trip {
 		dropBy?: string,
 		createdAt?: Date,
 		updatedAt?: Date,
+		deleted?: boolean,
 	) {
 		this.id = id;
 		this.slno = slno;
@@ -56,5 +58,6 @@ export class Trip {
 		this.dropBy = dropBy;
 		this.createdAt = createdAt || new Date();
 		this.updatedAt = updatedAt || new Date();
+		this.deleted = deleted || false;
 	}
 }

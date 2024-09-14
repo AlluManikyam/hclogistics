@@ -38,9 +38,19 @@ export default class UserService {
 	// Update a user by ID
 	public static async updateUser(user: User): Promise<User | null> {
 		const query = `UPDATE users
-                       SET name = ?, mobile_number = ?, user_role = ?, account_status = ?, updated_by = ?, updated_at = ?, deleted = ?
+                       SET name = ?, mobile_number = ?, user_role = ?, account_status = ?, updated_by = ?, updated_at = ?, updated_by=?, deleted = ?
                        WHERE id = ?`;
-		const values = [user.name, user.mobileNumber, user.userRole, user.accountStatus, user.updatedBy, user.updatedAt, user.deleted, user.id];
+		const values = [
+			user.name,
+			user.mobileNumber,
+			user.userRole,
+			user.accountStatus,
+			user.updatedBy,
+			user.updatedAt,
+			user.updatedBy,
+			user.deleted,
+			user.id,
+		];
 
 		const [result] = await pool.query<ResultSetHeader>(query, values);
 		const affectedRows = result.affectedRows;

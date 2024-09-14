@@ -10,6 +10,7 @@ export default class UserController {
 	// Create a new user
 	public static async createUser(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
 			const { name, mobileNumber, userRole } = req.body;
 
 			// Check if the mobile number already exists
@@ -29,10 +30,10 @@ export default class UserController {
 				name,
 				mobileNumber,
 				userRole,
-				undefined,
-				undefined, // createdBy
+				'active',
+				userId, // createdBy
 				createdAt,
-				undefined, // updatedBy
+				userId, // updatedBy
 				updatedAt,
 				false,
 			);
@@ -75,6 +76,7 @@ export default class UserController {
 	// Update a user by ID
 	public static async updateUser(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
 			const { id } = req.params;
 			const { name, mobileNumber, userRole, accountStatus } = req.body;
 
@@ -97,6 +99,7 @@ export default class UserController {
 			user.mobileNumber = mobileNumber || user.mobile_number;
 			user.userRole = userRole || user.user_role;
 			user.accountStatus = accountStatus || user.account_status;
+			user.updatedBy = userId;
 			user.updatedAt = new Date();
 
 			// Save the updated user to the database

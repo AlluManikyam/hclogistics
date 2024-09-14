@@ -15,7 +15,7 @@ export class User {
 		name?: string,
 		mobileNumber?: string,
 		userRole?: string,
-		accountStatus: string = 'Active',
+		accountStatus: string = 'active',
 		createdBy?: string,
 		createdAt?: Date,
 		updatedBy?: string,

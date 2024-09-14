@@ -10,6 +10,7 @@ export default class RoleController {
 	// Create a new role
 	public static async createRole(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
 			const { name } = req.body;
 
 			// Check if the name already exists
@@ -24,7 +25,7 @@ export default class RoleController {
 			const createdAt = new Date();
 			const updatedAt = new Date();
 
-			const newRole = new Role(id, name, undefined, createdAt, undefined, updatedAt, false);
+			const newRole = new Role(id, name, userId, createdAt, userId, updatedAt, false);
 
 			// Save the new role to the database
 			await RoleService.createRole(newRole);
@@ -64,6 +65,7 @@ export default class RoleController {
 	// Update a role by ID
 	public static async updateRole(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
 			const { id } = req.params;
 			const { name } = req.body;
 
@@ -82,7 +84,7 @@ export default class RoleController {
 
 			// Update role properties
 			role.name = name || role.name;
-			role.updatedBy = role.updatedBy;
+			role.updatedBy = userId;
 			role.updatedAt = new Date();
 
 			// Save the updated role to the database

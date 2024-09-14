@@ -12,7 +12,7 @@ export default class TripController {
 	// Create a new trip
 	public static async createTrip(req: Request, res: Response) {
 		try {
-			const userId = req.user?.id || '-1';
+			const userId = req?.user?.id || '-1';
 			const {
 				slno,
 				vehicleNo,
@@ -60,6 +60,7 @@ export default class TripController {
 				undefined,
 				new Date(),
 				new Date(),
+				false,
 			);
 
 			// Save the new trip to the database
@@ -129,6 +130,9 @@ export default class TripController {
 	public static async updateTrip(req: Request, res: Response) {
 		try {
 			const { id } = req.params;
+
+			const userId = req?.user?.id || '-1';
+
 			const {
 				slno,
 				vehicleNo,
@@ -139,8 +143,7 @@ export default class TripController {
 				productWeight,
 				productBillImage,
 				pickupProductLocationImage,
-				pickBy,
-				pickupDate,
+				dropLocation,
 			} = req.body;
 
 			// Check if the slno already exists and is not the current trip
@@ -151,7 +154,7 @@ export default class TripController {
 			}
 
 			// Fetch trip from the database
-			const trip = await TripService.getTripById(id);
+			const trip: any = await TripService.getTripById(id);
 
 			if (!trip) {
 				return SystemHelper.throwError(req, res, 404, 'Trip not found', 'TRIP_NOT_FOUND');
@@ -159,30 +162,35 @@ export default class TripController {
 
 			const productBillImageUrl = SystemHelper.isBase64DataUrl(productBillImage)
 				? await getS3Url(productBillImage, `trip_${slno}-product-bill-image`, Constants.Aws.BUCKET)
-				: trip.productBillImage;
+				: trip.product_bill_image;
 
 			const pickupProductLocationImageUrl = SystemHelper.isBase64DataUrl(pickupProductLocationImage)
-				? await getS3Url(pickupProductLocationImage, `trip_${slno}-product-location-image`, Constants.Aws.BUCKET)
-				: trip.pickupProductLocationImage;
+				? await getS3Url(pickupProductLocationImage, `trip-pickup-${slno}-product-location-image`, Constants.Aws.BUCKET)
+				: trip.pickup_product_location_image;
 
 			// Update trip properties
 			trip.slno = slno || trip.slno;
-			trip.vehicleNo = vehicleNo || trip.vehicleNo;
+			trip.vehicleNo = vehicleNo || trip.vehicle_no;
 			trip.status = status || trip.status;
-			trip.pickupLocation = pickupLocation || trip.pickupLocation;
-			trip.transporterName = transporterName || trip.transporterName;
-			trip.productType = productType || trip.productType;
-			trip.productWeight = productWeight || trip.productWeight;
+			trip.pickupLocation = pickupLocation || trip.pickup_location;
+			trip.transporterName = transporterName || trip.transporter_name;
+			trip.productType = productType || trip.product_type;
+			trip.productWeight = productWeight || trip.product_weight;
 			trip.productBillImage = productBillImageUrl;
 			trip.pickupProductLocationImage = pickupProductLocationImageUrl;
-			trip.pickupDate = pickupDate || trip.pickupDate;
-			trip.pickBy = pickBy || trip.pickBy;
+			trip.pickupDate = new Date() || trip.pickup_date;
+			trip.dropLocation = dropLocation || trip.drop_location;
+			trip.pickBy = userId || trip.pick_by;
 			trip.updatedAt = new Date();
+			trip.delete = false;
 
 			// Save the updated trip to the database
 			await TripService.updateTrip(trip);
 
-			return SystemHelper.sendResponse(req, res, 200, { trip });
+			// Fetch trip from the database
+			const updatedTrip: any = await TripService.getTripById(id);
+
+			return SystemHelper.sendResponse(req, res, 200, { trip: updatedTrip });
 		} catch (err) {
 			if (err instanceof Error) {
 				return SystemHelper.throwError(req, res, 500, 'Error updating trip', 'UPDATE_TRIP_ERROR', { errorMeta: err.message });
@@ -197,18 +205,12 @@ export default class TripController {
 	// Update a trip by ID
 	public static async updateTripStatus(req: Request, res: Response) {
 		try {
+			const userId = req?.user?.id || '-1';
 			const { slno } = req.params;
-			const { dropProductLocationImage, dropBy } = req.body;
-
-			// Check if the slno already exists and is not the current trip
-			const existingTrip = await TripService.findBySlNo(slno);
-
-			if (existingTrip && existingTrip.id !== slno) {
-				return SystemHelper.throwError(req, res, 400, 'Trip SLNo already in use', 'DUPLICATE_SLNO');
-			}
+			const { dropProductLocationImage } = req.body;
 
 			// Fetch trip from the database
-			const trip = await TripService.findBySlNo(slno);
+			const trip: any = await TripService.findBySlNo(slno);
 
 			if (!trip) {
 				return SystemHelper.throwError(req, res, 404, 'Trip not found', 'TRIP_NOT_FOUND');
@@ -216,15 +218,23 @@ export default class TripController {
 
 			// Update trip properties
 			trip.status = 'completed';
-			trip.dropProductLocationImage = dropProductLocationImage || trip.dropProductLocationImage;
-			trip.dropBy = dropBy || trip.dropBy;
+
+			const dropProductLocationImageUrl = SystemHelper.isBase64DataUrl(dropProductLocationImage)
+				? await getS3Url(dropProductLocationImage, `trip-drop-${slno}-product-location-image`, Constants.Aws.BUCKET)
+				: trip.drop_product_location_image;
+
+			trip.dropProductLocationImage = dropProductLocationImageUrl;
+			trip.dropBy = userId || trip.drop_by;
 			trip.dropDate = new Date();
 			trip.updatedAt = new Date();
 
 			// Save the updated trip to the database
-			await TripService.updateTrip(trip);
+			await TripService.updateTripStatus(trip);
 
-			return SystemHelper.sendResponse(req, res, 200, { trip });
+			// Fetch trip from the database
+			const updatedTrip: any = await TripService.findBySlNo(slno);
+
+			return SystemHelper.sendResponse(req, res, 200, { trip: updatedTrip });
 		} catch (err) {
 			if (err instanceof Error) {
 				return SystemHelper.throwError(req, res, 500, 'Error updating trip', 'UPDATE_TRIP_ERROR', { errorMeta: err.message });
