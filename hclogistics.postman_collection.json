@@ -442,7 +442,13 @@
 					"name": "getTripsList",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjMyNTI5NCwiZXhwIjoxNzI2MzI4ODk0fQ.4-Ru7_6J8bHyeCGHO4F6rEc7fV9Zb_nxeIWerA4qxRk",
+								"type": "text"
+							}
+						],
 						"url": "http://localhost:5001/api/trips/list"
 					},
 					"response": []
@@ -510,6 +516,113 @@
 							}
 						},
 						"url": "http://localhost:5001/api/trips/update/trip-status/140901"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transporters",
+			"item": [
+				{
+					"name": "createTransport",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ABC Logistics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/api/transporters/create"
+					},
+					"response": []
+				},
+				{
+					"name": "getTransportById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:5001/api/transporters/d5c80785-01a5-4244-a6eb-6f205c39ff7b"
+					},
+					"response": []
+				},
+				{
+					"name": "getTransportList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:5001/api/transporters/list"
+					},
+					"response": []
+				},
+				{
+					"name": "updateTransport",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"XYZ Logistics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/api/transporters/d5c80785-01a5-4244-a6eb-6f205c39ff7b"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTransport",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/api/roles/delete/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
 					},
 					"response": []
 				}
