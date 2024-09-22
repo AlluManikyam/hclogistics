@@ -16,7 +16,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -40,7 +40,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -55,7 +55,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -70,7 +70,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -94,7 +94,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -123,7 +123,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -147,7 +147,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -162,7 +162,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -177,7 +177,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -201,7 +201,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -313,7 +313,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -328,7 +328,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -362,20 +362,20 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Vizag New Updated\",\r\n    \"latitude\":\"1234\",\r\n    \"longitude\":\"4567\",\r\n    \"address\":\"Vizag 1234\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Bangalore North Ellis\",\r\n    \"latitude\":\"12.22558\",\r\n    \"longitude\":\"128.558\",\r\n    \"address\":\"Bangalore 123, Bangalore North Ellis\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/locations/9f68da8a-5c8f-45ec-bea6-353bf674c24f"
+						"url": "http://localhost:5001/api/locations/6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0"
 					},
 					"response": []
 				},
@@ -386,7 +386,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -406,13 +406,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"slno\": \"140901\",\r\n  \"vehicleNo\": \"MH12AB4587\",\r\n  \"pickupLocation\": \"4d4fee7f-ec7e-47b8-854b-727ed7312db0\",\r\n  \"transporterName\": \"XYZ Logistics\",\r\n  \"productType\": \"Electronics\",\r\n  \"productWeight\": 1000,\r\n  \"productBillImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"pickupProductLocationImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"dropLocation\": \"6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0\"\r\n}\r\n",
+							"raw": "{\r\n  \"slno\": \"140903\",\r\n  \"vehicleNo\": \"MH12AB4587\",\r\n  \"pickupLocation\": \"4d4fee7f-ec7e-47b8-854b-727ed7312db0\",\r\n  \"transporterName\": \"123 Logistics\",\r\n  \"productType\": \"Mech\",\r\n  \"productWeight\": 4500,\r\n  \"productBillImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"pickupProductLocationImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"dropLocation\": \"6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -430,7 +430,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -445,7 +445,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjMyNTI5NCwiZXhwIjoxNzI2MzI4ODk0fQ.4-Ru7_6J8bHyeCGHO4F6rEc7fV9Zb_nxeIWerA4qxRk",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -460,7 +460,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -502,7 +502,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI5MjQ1MSwiZXhwIjoxNzI2Mjk2MDUxfQ.XhScXBv_JCweP6amMzcGOr9jWUO-TuWlraBL_Nl0_Qk",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -515,7 +515,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/trips/update/trip-status/140901"
+						"url": "http://localhost:5001/api/trips/update/trip-status/220924"
 					},
 					"response": []
 				}

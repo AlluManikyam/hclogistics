@@ -107,7 +107,7 @@ CREATE TABLE `trips` (
   `vehicle_no` varchar(50) NOT NULL,
   `status` enum('pending', 'completed') NOT NULL,
   `pickup_location` varchar(255) NOT NULL,
-  `transporter_name` varchar(100) NOT NULL,
+  `transporter_id` varchar(40) NOT NULL,
   `product_type` varchar(100) NOT NULL,
   `product_weight` decimal(10, 2) NOT NULL,
   `product_bill_image` varchar(255) DEFAULT NULL,

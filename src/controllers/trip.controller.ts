@@ -17,7 +17,7 @@ export default class TripController {
 				slno,
 				vehicleNo,
 				pickupLocation,
-				transporterName,
+				transporterId,
 				productType,
 				productWeight,
 				productBillImage,
@@ -47,7 +47,7 @@ export default class TripController {
 				vehicleNo,
 				'pending',
 				pickupLocation,
-				transporterName,
+				transporterId,
 				productType,
 				productWeight,
 				productBillImageUrl,
@@ -138,7 +138,7 @@ export default class TripController {
 				vehicleNo,
 				status,
 				pickupLocation,
-				transporterName,
+				transporterId,
 				productType,
 				productWeight,
 				productBillImage,
@@ -173,7 +173,7 @@ export default class TripController {
 			trip.vehicleNo = vehicleNo || trip.vehicle_no;
 			trip.status = status || trip.status;
 			trip.pickupLocation = pickupLocation || trip.pickup_location;
-			trip.transporterName = transporterName || trip.transporter_name;
+			trip.transporterId = transporterId || trip.transporter_id;
 			trip.productType = productType || trip.product_type;
 			trip.productWeight = productWeight || trip.product_weight;
 			trip.productBillImage = productBillImageUrl;

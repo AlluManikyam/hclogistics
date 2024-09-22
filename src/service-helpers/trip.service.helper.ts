@@ -11,7 +11,7 @@ export default class TripService {
 			vehicle_no,
 			status,
 			pickup_location,
-			transporter_name,
+			transporter_id,
 			product_type,
 			product_weight,
 			product_bill_image,
@@ -30,7 +30,7 @@ export default class TripService {
 			trip.vehicleNo,
 			trip.status,
 			trip.pickupLocation,
-			trip.transporterName,
+			trip.transporterId,
 			trip.productType,
 			trip.productWeight,
 			trip.productBillImage,
@@ -57,7 +57,7 @@ export default class TripService {
 	// Update a trip by ID
 	public static async updateTrip(trip: Trip): Promise<Trip | null> {
 		const query = `UPDATE trips
-                       SET slno = ?, vehicle_no = ?, status = ?, pickup_location = ?, transporter_name = ?,
+                       SET slno = ?, vehicle_no = ?, status = ?, pickup_location = ?, transporter_id = ?,
 											 product_type = ?, product_weight = ?, product_bill_image = ?, pickup_product_location_image = ?,
 											 pickup_date = ?, pick_by = ?, drop_location=?, updated_at = ?
                        WHERE id = ?`;
@@ -66,7 +66,7 @@ export default class TripService {
 			trip.vehicleNo,
 			trip.status,
 			trip.pickupLocation,
-			trip.transporterName,
+			trip.transporterId,
 			trip.productType,
 			trip.productWeight,
 			trip.productBillImage,
@@ -105,7 +105,20 @@ export default class TripService {
 
 	// List all trips
 	public static async listTrips(): Promise<Trip[]> {
-		const query = `SELECT * FROM trips`;
+		const query = `SELECT
+											t.*,
+											-- Pickup location info
+											pickupInfo.id AS pickup_location_id,
+											pickupInfo.name AS pickup_location_name,
+											-- Drop location info
+											dropInfo.id AS drop_location_id,
+											dropInfo.name AS drop_location_name,
+											tr.id as transporter_id,
+											tr.name as transporter_name
+									FROM trips t
+									JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
+									JOIN locations dropInfo ON t.drop_location = dropInfo.id
+									JOIN transporters tr on t.transporter_id = tr.id`;
 		const [rows] = await pool.query<RowDataPacket[]>(query);
 		return rows as Trip[];
 	}
@@ -126,10 +139,13 @@ export default class TripService {
             dropInfo.name AS drop_location_name,
             dropInfo.latitude AS drop_location_latitude,
             dropInfo.longitude AS drop_location_longitude,
-            dropInfo.address AS drop_location_address
+            dropInfo.address AS drop_location_address,
+						tr.id as transporter_id,
+						tr.name as transporter_name
         FROM trips t
         JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
         JOIN locations dropInfo ON t.drop_location = dropInfo.id
+				JOIN transporters tr on t.transporter_id = tr.id
         WHERE t.slno = ?`;
 
 		const trip = await queryOne(query, [slno]);

@@ -4,7 +4,7 @@ export class Trip {
 	vehicleNo: string;
 	status: 'pending' | 'completed'; // Enum type for status
 	pickupLocation: string;
-	transporterName: string;
+	transporterId: string;
 	productType: string;
 	productWeight: number;
 	productBillImage?: string;
@@ -25,7 +25,7 @@ export class Trip {
 		vehicleNo: string,
 		status: 'pending' | 'completed',
 		pickupLocation: string,
-		transporterName: string,
+		transporterId: string,
 		productType: string,
 		productWeight: number,
 		productBillImage?: string,
@@ -45,7 +45,7 @@ export class Trip {
 		this.vehicleNo = vehicleNo;
 		this.status = status;
 		this.pickupLocation = pickupLocation;
-		this.transporterName = transporterName;
+		this.transporterId = transporterId;
 		this.productType = productType;
 		this.productWeight = productWeight;
 		this.productBillImage = productBillImage;

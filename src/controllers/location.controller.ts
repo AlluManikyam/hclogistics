@@ -91,7 +91,7 @@ export default class LocationController {
 			// Update location properties
 			location.name = name || location.name;
 			location.address = address || location.address;
-			location.latitude, latitude || location.latitude;
+			location.latitude = latitude || location.latitude;
 			location.longitude = longitude || location.longitude;
 			location.updatedBy = userId || location.updatedBy;
 			location.updatedAt = new Date();
