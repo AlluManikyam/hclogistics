@@ -36,7 +36,12 @@ export const validateUser = (req: Request, res: Response, next: NextFunction) =>
 	jwt.verify(token, process.env.JWT_SECRET as string, (err, decoded: any) => {
 		if (err) {
 			// Return early if verification fails
-			return res.status(403).json({ message: 'Invalid token' });
+			return res.status(403).json({
+				status: 400,
+				errorCode: 'INVALID_USER_SESSION',
+				errorMessage: 'Invalid User Session',
+				errorData: {},
+			});
 		}
 
 		// Save decoded user info to the request object

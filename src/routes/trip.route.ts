@@ -40,7 +40,7 @@ const UpdateTripSchema = {
 router.post('/create', validateUser, new Auth(CreateTripSchema).validate, TripController.createTrip);
 
 // List all trips
-router.get('/list', validateUser, TripController.listTrips);
+router.post('/list', validateUser, TripController.listTrips);
 
 // Get a trip by SLNo
 router.get('/:slno', validateUser, TripController.getTripBySlno);

@@ -103,23 +103,56 @@ export default class TripService {
 		return affectedRows > 0;
 	}
 
-	// List all trips
-	public static async listTrips(): Promise<Trip[]> {
-		const query = `SELECT
-											t.*,
-											-- Pickup location info
-											pickupInfo.id AS pickup_location_id,
-											pickupInfo.name AS pickup_location_name,
-											-- Drop location info
-											dropInfo.id AS drop_location_id,
-											dropInfo.name AS drop_location_name,
-											tr.id as transporter_id,
-											tr.name as transporter_name
-									FROM trips t
-									JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
-									JOIN locations dropInfo ON t.drop_location = dropInfo.id
-									JOIN transporters tr on t.transporter_id = tr.id`;
-		const [rows] = await pool.query<RowDataPacket[]>(query);
+	// List all trips with optional filters for slno, status, and pickup_date range
+	public static async listTrips(filterConditions?: any): Promise<Trip[]> {
+		let query = `
+    SELECT
+      t.*,
+      -- Pickup location info
+      pickupInfo.id AS pickup_location_id,
+      pickupInfo.name AS pickup_location_name,
+      -- Drop location info
+      dropInfo.id AS drop_location_id,
+      dropInfo.name AS drop_location_name,
+      tr.id as transporter_id,
+      tr.name as transporter_name
+    FROM trips t
+    JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
+    JOIN locations dropInfo ON t.drop_location = dropInfo.id
+    JOIN transporters tr on t.transporter_id = tr.id
+  `;
+
+		const conditions: string[] = [];
+		const values: any[] = [];
+
+		// Add filters based on provided parameters
+		if (filterConditions.slno) {
+			conditions.push('t.slno = ?');
+			values.push(filterConditions.slno);
+		}
+
+		if (filterConditions.status && filterConditions.status !== 'all') {
+			conditions.push('t.status = ?');
+			values.push(filterConditions.status);
+		}
+
+		if (filterConditions.pickupStartDate && filterConditions.pickUpEndDate) {
+			conditions.push('t.pickup_date BETWEEN ? AND ?');
+			values.push(filterConditions.pickupStartDate, filterConditions.pickUpEndDate);
+		} else if (filterConditions.pickupStartDate) {
+			conditions.push('t.pickup_date >= ?');
+			values.push(filterConditions.pickupStartDate);
+		} else if (filterConditions.pickUpEndDate) {
+			conditions.push('t.pickup_date <= ?');
+			values.push(filterConditions.pickUpEndDate);
+		}
+
+		// If there are any conditions, append them to the query
+		if (conditions.length > 0) {
+			query += ' WHERE ' + conditions.join(' AND ');
+		}
+
+		const [rows] = await pool.query<RowDataPacket[]>(query, values);
 		return rows as Trip[];
 	}
 

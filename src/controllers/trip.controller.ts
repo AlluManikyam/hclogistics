@@ -3,7 +3,7 @@ import { Trip } from '@Models/trip.model'; // Adjust import path as necessary
 import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
 import { v4 as uuidv4 } from 'uuid';
 import TripService from '@ServiceHelpers/trip.service.helper'; // Adjust import path as necessary
-import { getS3Url } from '@Helpers/aws-helpter';
+import { getS3Url } from '@Helpers/aws-helper';
 import { Constants } from '@Utility/constants';
 
 export default class TripController {
@@ -276,8 +276,10 @@ export default class TripController {
 	// List all trips
 	public static async listTrips(req: Request, res: Response) {
 		try {
+			const { slno = '', status = '', pickupStartDate = '', pickUpEndDate = '' } = req.body;
 			// Fetch all trips from the database
-			const trips = await TripService.listTrips();
+			const filterData = { slno, status, pickupStartDate, pickUpEndDate };
+			const trips = await TripService.listTrips(filterData);
 
 			return SystemHelper.sendResponse(req, res, 200, { trips });
 		} catch (err) {

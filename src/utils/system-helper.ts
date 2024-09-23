@@ -34,6 +34,14 @@ export class SystemHelper {
 		return uuidv4();
 	}
 
+	public static getAwsCreds(): {} {
+		return {
+			accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+			secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+			region: 'ap-south-1',
+		};
+	}
+
 	public static checkUrl(targetString: string): boolean {
 		if (!targetString) return true;
 

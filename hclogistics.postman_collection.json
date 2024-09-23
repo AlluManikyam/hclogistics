@@ -22,14 +22,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Karthik\",\r\n  \"mobileNumber\": \"9876543210\",\r\n  \"userRole\": \"db5d99a8-8263-43f5-9800-14526894a115\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Karthik\",\r\n  \"mobileNumber\": \"9441136987\",\r\n  \"userRole\": \"db5d99a8-8263-43f5-9800-14526894a115\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/users/create"
+						"url": "{{BASE_URL}}/api/users/create"
 					},
 					"response": []
 				},
@@ -44,7 +44,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/users/de66a7d4-d3c0-49aa-a3b2-437eac874e57"
+						"url": "{{BASE_URL}}/api/users/de66a7d4-d3c0-49aa-a3b2-437eac874e57"
 					},
 					"response": []
 				},
@@ -59,7 +59,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/users/list"
+						"url": "{{BASE_URL}}/api/users/list"
 					},
 					"response": []
 				},
@@ -83,7 +83,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/users/de66a7d4-d3c0-49aa-a3b2-437eac874e57"
+						"url": "{{BASE_URL}}/api/users/de66a7d4-d3c0-49aa-a3b2-437eac874e57"
 					},
 					"response": []
 				},
@@ -107,7 +107,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/users/delete/de66a7d4-d3c0-49aa-a3b2-437eac874e57"
+						"url": "{{BASE_URL}}/api/users/delete/de66a7d4-d3c0-49aa-a3b2-437eac874e57"
 					},
 					"response": []
 				}
@@ -136,7 +136,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/roles/create"
+						"url": "{{BASE_URL}}/api/roles/create"
 					},
 					"response": []
 				},
@@ -151,7 +151,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/roles/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
+						"url": "{{BASE_URL}}/api/roles/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
 					},
 					"response": []
 				},
@@ -166,7 +166,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/roles/list"
+						"url": "{{BASE_URL}}/api/roles/list"
 					},
 					"response": []
 				},
@@ -190,7 +190,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/roles/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
+						"url": "{{BASE_URL}}/api/roles/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
 					},
 					"response": []
 				},
@@ -214,7 +214,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/roles/delete/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
+						"url": "{{BASE_URL}}/api/roles/delete/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
 					},
 					"response": []
 				}
@@ -230,14 +230,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mobileNumber\": \"7993492512\"\r\n}",
+							"raw": "{\r\n    \"mobileNumber\": \"9441136987\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/auth/validate-user"
+						"url": "{{BASE_URL}}/api/auth/validate-user"
 					},
 					"response": []
 				},
@@ -248,14 +248,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mobileNumber\":\"7993492512\",\r\n    \"otpValue\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"mobileNumber\":\"9441136987\",\r\n    \"otpValue\":\"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/auth/login"
+						"url": "{{BASE_URL}}/api/auth/login"
 					},
 					"response": []
 				},
@@ -273,7 +273,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/otps/resend-otp"
+						"url": "{{BASE_URL}}/api/otps/resend-otp"
 					},
 					"response": []
 				}
@@ -302,7 +302,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/locations/create"
+						"url": "{{BASE_URL}}/api/locations/create"
 					},
 					"response": []
 				},
@@ -317,7 +317,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/locations/list"
+						"url": "{{BASE_URL}}/api/locations/list"
 					},
 					"response": []
 				},
@@ -333,12 +333,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5001/api/locations/9f68da8a-5c8f-45ec-bea6-353bf674c24f",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/api/locations/9f68da8a-5c8f-45ec-bea6-353bf674c24f",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "5001",
 							"path": [
 								"api",
 								"locations",
@@ -375,7 +373,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/locations/6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0"
+						"url": "{{BASE_URL}}/api/locations/6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0"
 					},
 					"response": []
 				},
@@ -390,7 +388,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/locations/delete/9f68da8a-5c8f-45ec-bea6-353bf674c24f"
+						"url": "{{BASE_URL}}/api/locations/delete/9f68da8a-5c8f-45ec-bea6-353bf674c24f"
 					},
 					"response": []
 				}
@@ -412,14 +410,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"slno\": \"140903\",\r\n  \"vehicleNo\": \"MH12AB4587\",\r\n  \"pickupLocation\": \"4d4fee7f-ec7e-47b8-854b-727ed7312db0\",\r\n  \"transporterName\": \"123 Logistics\",\r\n  \"productType\": \"Mech\",\r\n  \"productWeight\": 4500,\r\n  \"productBillImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"pickupProductLocationImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"dropLocation\": \"6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0\"\r\n}\r\n",
+							"raw": "{\r\n  \"slno\": \"140903\",\r\n  \"vehicleNo\": \"MH12AB4587\",\r\n  \"pickupLocation\": \"4d4fee7f-ec7e-47b8-854b-727ed7312db0\",\r\n  \"transporterId\": \"5ab38cf1-0012-4a31-aae9-ec7748b63f9d\",\r\n  \"productType\": \"Mech\",\r\n  \"productWeight\": 4500,\r\n  \"productBillImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"pickupProductLocationImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"dropLocation\": \"6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/trips/create"
+						"url": "{{BASE_URL}}/api/trips/create"
 					},
 					"response": []
 				},
@@ -434,14 +432,14 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/trips/140901"
+						"url": "{{BASE_URL}}/api/trips/140901"
 					},
 					"response": []
 				},
 				{
-					"name": "getTripsList",
+					"name": "getTripsListWithFilter",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
@@ -449,7 +447,14 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/trips/list"
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "",
+								"variables": ""
+							}
+						},
+						"url": "{{BASE_URL}}/api/trips/list"
 					},
 					"response": []
 				},
@@ -466,14 +471,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"slno\": \"140901\",\r\n  \"vehicleNo\": \"MH12AB4587\",\r\n  \"pickupLocation\": \"4d4fee7f-ec7e-47b8-854b-727ed7312db0\",\r\n  \"transporterName\": \"ABCD Logistics\",\r\n  \"productType\": \"Computers && Electronics\",\r\n  \"productWeight\": 1000,\r\n  \"productBillImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"pickupProductLocationImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"dropLocation\": \"6fc06e0a-3d23-4cb6-aaaf-5caa3ef260c0\"\r\n}\r\n",
+							"raw": "{\r\n  \"slno\": \"140903\",\r\n  \"vehicleNo\": \"MH12AB4587\",\r\n  \"pickupLocation\": \"e99dfdbe-ae8e-453e-964d-33197d9647f4\",\r\n  \"transporterId\": \"5ab38cf1-0012-4a31-aae9-ec7748b63f9d\",\r\n  \"productType\": \"Mech\",\r\n  \"productWeight\": 4500,\r\n  \"productBillImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"pickupProductLocationImage\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII=\",\r\n  \"dropLocation\": \"2a9781d3-b9fc-4371-b2b3-162acf429435\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/trips/update/0650bf04-ab05-451b-869a-32a83015ee83"
+						"url": "{{BASE_URL}}/api/trips/update/2dcf1bfa-d446-403b-862e-931162fe80f2"
 					},
 					"response": []
 				},
@@ -481,7 +486,13 @@
 					"name": "deleteTrip",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -491,7 +502,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/users/delete/1d9ea576-28be-4e8a-938b-b260efb65090"
+						"url": "{{BASE_URL}}/api/users/delete/1d9ea576-28be-4e8a-938b-b260efb65090"
 					},
 					"response": []
 				},
@@ -515,7 +526,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/trips/update/trip-status/220924"
+						"url": "{{BASE_URL}}/api/trips/update/trip-status/220924"
 					},
 					"response": []
 				}
@@ -531,7 +542,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -544,7 +555,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/transporters/create"
+						"url": "{{BASE_URL}}/api/transporters/create"
 					},
 					"response": []
 				},
@@ -555,11 +566,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/transporters/d5c80785-01a5-4244-a6eb-6f205c39ff7b"
+						"url": "{{BASE_URL}}/api/transporters/d5c80785-01a5-4244-a6eb-6f205c39ff7b"
 					},
 					"response": []
 				},
@@ -570,11 +581,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5001/api/transporters/list"
+						"url": "{{BASE_URL}}/api/transporters/list"
 					},
 					"response": []
 				},
@@ -585,7 +596,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjUwMzUwNywiZXhwIjoxNzI2NTA3MTA3fQ.l5FB-OxG1MdjpjL7m8L_P3gcSbSISrJkoUjEHOb9vS4",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -598,7 +609,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/transporters/d5c80785-01a5-4244-a6eb-6f205c39ff7b"
+						"url": "{{BASE_URL}}/api/transporters/d5c80785-01a5-4244-a6eb-6f205c39ff7b"
 					},
 					"response": []
 				},
@@ -609,7 +620,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNiMzY2YmYzLTIxZTgtNDBjYy1hNDU2LWRhZTMxYWZlYzc2NCIsImlhdCI6MTcyNjI4ODU2NiwiZXhwIjoxNzI2MjkyMTY2fQ.9cQcFoQ8bcQYDIMwiuvEgX7vSlH_a8yIJnrq4FLEPMU",
+								"value": "Bearer {{JWT}}",
 								"type": "text"
 							}
 						],
@@ -622,11 +633,17 @@
 								}
 							}
 						},
-						"url": "http://localhost:5001/api/roles/delete/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
+						"url": "{{BASE_URL}}/api/roles/delete/83e99aae-7dfa-454b-bcc9-9db43ebc7745"
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "BaseUrl"
 		}
 	]
 }

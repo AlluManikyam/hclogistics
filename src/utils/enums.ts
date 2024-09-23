@@ -4,3 +4,13 @@ export enum Env {
 	Stagging = 'STAGGING',
 	Prod = 'PROD',
 }
+
+export enum SMSType {
+	Promotional = 'Promotional',
+	Transactional = 'Transactional',
+}
+
+export enum SMSStatus {
+	Sent = 'sent',
+	Failure = 'failure',
+}
