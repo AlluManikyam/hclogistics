@@ -10,6 +10,7 @@ import login from '@Routes/login.route';
 import users from '@Routes/user.route';
 import otps from '@Routes/otp.route';
 import trips from '@Routes/trip.route';
+import excel from '@Routes/excel.route';
 import path from 'path';
 import API from '@Middlewares/api.middleware';
 import * as global from './lib/global';
@@ -73,6 +74,7 @@ app.use('/api/auth', login);
 app.use('/api/users', users);
 app.use('/api/otps', otps);
 app.use('/api/trips', trips);
+app.use('/api/xlsx', excel);
 
 // Invalid routes
 app.all('*', (req: Request, res: Response) => {
