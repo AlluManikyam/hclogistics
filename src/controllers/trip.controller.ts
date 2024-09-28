@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import TripService from '@ServiceHelpers/trip.service.helper'; // Adjust import path as necessary
 import { getS3Url } from '@Helpers/aws-helper';
 import { Constants } from '@Utility/constants';
-
+import XLSX from 'xlsx';
+import fs from 'fs';
+import path from 'path';
 export default class TripController {
 	constructor() {}
 
@@ -276,9 +278,9 @@ export default class TripController {
 	// List all trips
 	public static async listTrips(req: Request, res: Response) {
 		try {
-			const { slno = '', status = '', pickupStartDate = '', pickUpEndDate = '' } = req.body;
+			const { slno = '', status = '', pickupStartDate = '', pickupEndDate = '' } = req.body;
 			// Fetch all trips from the database
-			const filterData = { slno, status, pickupStartDate, pickUpEndDate };
+			const filterData = { slno, status, pickupStartDate, pickupEndDate };
 			const trips = await TripService.listTrips(filterData);
 
 			return SystemHelper.sendResponse(req, res, 200, { trips });
@@ -289,6 +291,72 @@ export default class TripController {
 				return SystemHelper.throwError(req, res, 500, 'Unknown error occurred', 'UNKNOWN_ERROR', {
 					errorMeta: 'An unknown error occurred',
 				});
+			}
+		}
+	}
+
+	// Download trips
+	public static async downloadTrips(req: Request, res: Response): Promise<void> {
+		try {
+			const { slno = '', status = '', pickupStartDate = '', pickupEndDate = '' } = req.query;
+			// Fetch all trips from the database
+			const filterData = { slno, status, pickupStartDate, pickupEndDate };
+			const trips = await TripService.listTrips(filterData);
+
+			const formattedTrips = trips.map((item: any) => ({
+				SlNo: item.slno,
+				'Vehicle No': item.vehicle_no,
+				Status: item.status,
+				'Product Type': item.product_type,
+				'Product Weight': item.product_weight,
+				'Transporter Name': item.transporter_name,
+				// 'Product Bill Image': item.product_bill_image,
+				// 'Pickup Product Location Image': item.pickup_product_location_image,
+				'Pickup Location Name': item.pickup_location_name,
+				'Pickup Date': item.pickup_date,
+				'Pickup By': item.pickup_by,
+				'Drop Location Name': item.drop_location_name, // Default value if not present
+				'Drop Date': item.drop_date || '-',
+				'Verified By': item.drop_by || '-',
+				// 'Drop Product Location Image': item.drop_product_location_image,
+			}));
+
+			const workbook = XLSX.utils.book_new();
+			const worksheet = XLSX.utils.json_to_sheet(formattedTrips);
+			XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+			const filePath = path.join(__dirname, '../../data.xlsx');
+			XLSX.writeFile(workbook, filePath);
+
+			res.setHeader('Content-Disposition', 'attachment filename=data.xlsx');
+			res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+			const utcDate = SystemHelper.getFormattedDate().replace(/[:\s]/g, '-'); // Replace invalid characters for filename
+
+			// Use res.download to send the file
+			res.download(filePath, `trips-${utcDate}.xlsx`, err => {
+				// No need to return here if no further processing is needed
+				// Error handling for file download
+				if (err) {
+					console.error('Error while sending file:', err);
+					// Use SystemHelper.throwError to send an error response
+					SystemHelper.throwError(req, res, 500, 'Error fetching trips', 'FETCH_TRIPS_ERROR', { errorMeta: err.message });
+				} else {
+					// Remove the file after it has been downloaded
+					fs.unlinkSync(filePath);
+					// Log success
+					console.log('File successfully downloaded');
+				}
+			});
+		} catch (err) {
+			if (err instanceof Error) {
+				// Log the error instead of returning
+				console.log('trips download error', err);
+				// Optionally use SystemHelper.throwError to send an error response
+				SystemHelper.throwError(req, res, 500, 'Error downloading trips', 'DOWNLOAD_TRIPS_ERROR', { errorMeta: err.message });
+			} else {
+				// Log generic error if it's not an instance of Error
+				console.log('Unknown error during trip download');
 			}
 		}
 	}

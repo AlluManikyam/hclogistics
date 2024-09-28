@@ -54,4 +54,7 @@ router.post('/update/:id', validateUser, TripController.updateTrip);
 // Delete a trip by SLNo
 router.post('/delete/:slno', validateUser, TripController.deleteTrip);
 
+// Download excel report
+router.get('/list/download', TripController.downloadTrips);
+
 export default router;

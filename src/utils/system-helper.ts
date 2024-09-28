@@ -30,6 +30,11 @@ export class SystemHelper {
 			.format('DD-MM-YYYY HH:mm:ss');
 	}
 
+	public static getFormattedDate(): string {
+		// Use Moment to get the current UTC date and format it
+		return moment().format('YYYY-MM-DDTHH:mm:ss');
+	}
+
 	public static getUUID(): string {
 		return uuidv4();
 	}

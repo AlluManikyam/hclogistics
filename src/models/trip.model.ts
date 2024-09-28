@@ -54,7 +54,7 @@ export class Trip {
 		this.pickBy = pickBy;
 		this.dropLocation = dropLocation;
 		this.dropProductLocationImage = dropProductLocationImage;
-		this.dropDate = dropDate || new Date();
+		this.dropDate = dropDate;
 		this.dropBy = dropBy;
 		this.createdAt = createdAt || new Date();
 		this.updatedAt = updatedAt || new Date();

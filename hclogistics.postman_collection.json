@@ -529,6 +529,28 @@
 						"url": "{{BASE_URL}}/api/trips/update/trip-status/220924"
 					},
 					"response": []
+				},
+				{
+					"name": "DownloadTrips",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "",
+								"variables": ""
+							}
+						},
+						"url": "{{BASE_URL}}/api/trips/list"
+					},
+					"response": []
 				}
 			]
 		},

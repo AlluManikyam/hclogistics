@@ -115,11 +115,15 @@ export default class TripService {
       dropInfo.id AS drop_location_id,
       dropInfo.name AS drop_location_name,
       tr.id as transporter_id,
-      tr.name as transporter_name
+      tr.name as transporter_name,
+			pickUpUser.name as pickup_by,
+			dropUser.name as drop_by
     FROM trips t
     JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
     JOIN locations dropInfo ON t.drop_location = dropInfo.id
     JOIN transporters tr on t.transporter_id = tr.id
+		LEFT JOIN users pickUpUser on pickUpUser.id = t.pick_by
+		LEFT JOIN users dropUser on dropUser.id = t.drop_by
   `;
 
 		const conditions: string[] = [];
@@ -136,15 +140,15 @@ export default class TripService {
 			values.push(filterConditions.status);
 		}
 
-		if (filterConditions.pickupStartDate && filterConditions.pickUpEndDate) {
+		if (filterConditions.pickupStartDate && filterConditions.pickupEndDate) {
 			conditions.push('t.pickup_date BETWEEN ? AND ?');
-			values.push(filterConditions.pickupStartDate, filterConditions.pickUpEndDate);
+			values.push(filterConditions.pickupStartDate, filterConditions.pickupEndDate);
 		} else if (filterConditions.pickupStartDate) {
 			conditions.push('t.pickup_date >= ?');
 			values.push(filterConditions.pickupStartDate);
-		} else if (filterConditions.pickUpEndDate) {
+		} else if (filterConditions.pickupEndDate) {
 			conditions.push('t.pickup_date <= ?');
-			values.push(filterConditions.pickUpEndDate);
+			values.push(filterConditions.pickupEndDate);
 		}
 
 		// If there are any conditions, append them to the query
@@ -174,11 +178,13 @@ export default class TripService {
             dropInfo.longitude AS drop_location_longitude,
             dropInfo.address AS drop_location_address,
 						tr.id as transporter_id,
-						tr.name as transporter_name
+						tr.name as transporter_name,
+						dropByUser.name as verifiedUserName
         FROM trips t
         JOIN locations pickupInfo ON t.pickup_location = pickupInfo.id
         JOIN locations dropInfo ON t.drop_location = dropInfo.id
 				JOIN transporters tr on t.transporter_id = tr.id
+				LEFT JOIN users dropByUser on dropByUser.id = t.drop_by
         WHERE t.slno = ?`;
 
 		const trip = await queryOne(query, [slno]);

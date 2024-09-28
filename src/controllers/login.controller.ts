@@ -74,7 +74,7 @@ export default class LoginController {
 				await OTPService.updateOtp(otpRecord);
 
 				// Generate JWT token
-				const token = jwt.sign({ id: user.id, mobileNumber: user.mobileNumber }, JWT_SECRET, { expiresIn: '1h' });
+				const token = jwt.sign({ id: user.id, mobileNumber: user.mobileNumber }, JWT_SECRET, { expiresIn: '7d' });
 
 				const userInfo = await UserService.getUserById(user.id);
 

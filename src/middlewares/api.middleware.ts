@@ -62,7 +62,7 @@ export default class API {
 			method: req.method,
 			body: req.body,
 			params: req.params,
-			queryParma: req.query,
+			queryParams: req.query,
 		});
 	}
 
