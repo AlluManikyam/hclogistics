@@ -1,6 +1,6 @@
-import AppVersionController from '@Controllers/app-version.controller'; // Adjust import path as necessary
+import AppVersionController from '@Controllers/app-version.controller';
 import { validateUser } from '@Middlewares/api.middleware';
-import Auth from '@Middlewares/auth.middleware'; // Adjust import path as necessary
+import Auth from '@Middlewares/auth.middleware';
 import express from 'express';
 import { version } from 'os';
 

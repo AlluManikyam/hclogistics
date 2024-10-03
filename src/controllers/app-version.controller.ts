@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { AppVersion } from '@Models/app-version.model'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import { AppVersion } from '@Models/app-version.model';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
-import AppVersionService from '@ServiceHelpers/app-version.service.helper'; // Adjust import path as necessary
+import AppVersionService from '@ServiceHelpers/app-version.service.helper';
 
 export default class AppVersionController {
 	constructor() {}

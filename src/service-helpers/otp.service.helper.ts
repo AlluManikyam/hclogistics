@@ -1,7 +1,7 @@
 // src/services/otp.service.ts
 
-import { Otp } from '@Models/otp.model'; // Adjust import path as necessary
-import { queryOne, pool } from '@Configs/db.config'; // Adjust import path as necessary
+import { Otp } from '@Models/otp.model';
+import { queryOne, pool } from '@Configs/db.config';
 
 export default class OtpService {
 	// Create a new OTP record

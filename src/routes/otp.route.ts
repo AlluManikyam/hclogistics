@@ -1,6 +1,6 @@
 // src/routes/otp.routes.ts
 
-import OTPController from '@Controllers/otp.controller'; // Adjust import path as necessary
+import OTPController from '@Controllers/otp.controller';
 import express from 'express';
 
 const router = express.Router();

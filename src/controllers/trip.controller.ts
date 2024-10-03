@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { Trip } from '@Models/trip.model'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import { Trip } from '@Models/trip.model';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
-import TripService from '@ServiceHelpers/trip.service.helper'; // Adjust import path as necessary
+import TripService from '@ServiceHelpers/trip.service.helper';
 import { getS3Url } from '@Helpers/aws-helper';
 import { Constants } from '@Utility/constants';
 import XLSX from 'xlsx';

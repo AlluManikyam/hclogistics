@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { Location } from '@Models/location.model'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import { Location } from '@Models/location.model';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
 import LocationService from '@ServiceHelpers/location.service.helper';
 

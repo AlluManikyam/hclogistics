@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { Role } from '@Models/role.model'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import { Role } from '@Models/role.model';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
-import RoleService from '@ServiceHelpers/role.service.helper'; // Adjust import path as necessary
+import RoleService from '@ServiceHelpers/role.service.helper';
 
 export default class RoleController {
 	constructor() {}

@@ -1,6 +1,6 @@
-import RoleController from '@Controllers/role.controller'; // Adjust import path as necessary
+import RoleController from '@Controllers/role.controller';
 import { validateUser } from '@Middlewares/api.middleware';
-import Auth from '@Middlewares/auth.middleware'; // Adjust import path as necessary
+import Auth from '@Middlewares/auth.middleware';
 import express from 'express';
 
 const router = express.Router();

@@ -1,6 +1,6 @@
 // src/routes/login.routes.ts
 
-import LoginController from '@Controllers/login.controller'; // Adjust import path as necessary
+import LoginController from '@Controllers/login.controller';
 import express from 'express';
 
 const router = express.Router();

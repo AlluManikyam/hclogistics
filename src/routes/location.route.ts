@@ -1,6 +1,6 @@
-import LocationController from '@Controllers/location.controller'; // Adjust import path as necessary
+import LocationController from '@Controllers/location.controller';
 import { validateUser } from '@Middlewares/api.middleware';
-import Auth from '@Middlewares/auth.middleware'; // Adjust import path as necessary
+import Auth from '@Middlewares/auth.middleware';
 import express from 'express';
 
 const router = express.Router();

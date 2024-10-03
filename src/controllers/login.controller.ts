@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import OTPService from '@ServiceHelpers/otp.service.helper'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
-import UserService from '@ServiceHelpers/user.service.helper'; // Adjust import path as necessary
+import OTPService from '@ServiceHelpers/otp.service.helper';
+import { SystemHelper } from '@Utility/system-helper';
+import UserService from '@ServiceHelpers/user.service.helper';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import { Otp } from '@Models/otp.model';

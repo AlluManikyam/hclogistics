@@ -1,8 +1,8 @@
 // src/controllers/otp.controller.ts
 
 import { Request, Response } from 'express';
-import OtpService from '@ServiceHelpers/otp.service.helper'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import OtpService from '@ServiceHelpers/otp.service.helper';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
 import { Otp } from '@Models/otp.model';
 import UserService from '@ServiceHelpers/user.service.helper';

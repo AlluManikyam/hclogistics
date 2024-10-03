@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { User } from '@Models/user.model'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import { User } from '@Models/user.model';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
-import UserService from '@ServiceHelpers/user.service.helper'; // Adjust import path as necessary
+import UserService from '@ServiceHelpers/user.service.helper';
 
 export default class UserController {
 	constructor() {}

@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { Transporter } from '@Models/transporter.model'; // Adjust import path as necessary
-import { SystemHelper } from '@Utility/system-helper'; // Adjust import path as necessary
+import { Transporter } from '@Models/transporter.model';
+import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
-import TransporterService from '@ServiceHelpers/transporter.service.helper'; // Adjust import path as necessary
+import TransporterService from '@ServiceHelpers/transporter.service.helper';
 
 export default class TransporterController {
 	constructor() {}

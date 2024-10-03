@@ -1,6 +1,6 @@
-import TransporterController from '@Controllers/transporter.controller'; // Adjust import path as necessary
+import TransporterController from '@Controllers/transporter.controller';
 import { validateUser } from '@Middlewares/api.middleware';
-import Auth from '@Middlewares/auth.middleware'; // Adjust import path as necessary
+import Auth from '@Middlewares/auth.middleware';
 import express from 'express';
 
 const router = express.Router();
