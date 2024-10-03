@@ -9,6 +9,7 @@ import tenants from '@Routes/tenant.route';
 import login from '@Routes/login.route';
 import users from '@Routes/user.route';
 import otps from '@Routes/otp.route';
+import appVersions from '@Routes/app-version.route';
 import trips from '@Routes/trip.route';
 import excel from '@Routes/excel.route';
 import path from 'path';
@@ -74,6 +75,7 @@ app.use('/api/auth', login);
 app.use('/api/users', users);
 app.use('/api/otps', otps);
 app.use('/api/trips', trips);
+app.use('/api/app-versions', appVersions);
 app.use('/api/xlsx', excel);
 
 // Invalid routes
