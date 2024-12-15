@@ -18,11 +18,12 @@ export default class TripService {
 			pickup_product_location_image,
 			pickup_date,
 			pick_by,
+			pickup_remarks,
 			drop_location,
 			created_at,
 			updated_at,
 			deleted
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
 		const values = [
 			trip.id,
@@ -37,6 +38,7 @@ export default class TripService {
 			trip.pickupProductLocationImage,
 			trip.pickupDate,
 			trip.pickBy,
+			trip.pickupRemarks,
 			trip.dropLocation,
 			trip.createdAt,
 			trip.updatedAt,
@@ -59,7 +61,7 @@ export default class TripService {
 		const query = `UPDATE trips
                        SET slno = ?, vehicle_no = ?, status = ?, pickup_location = ?, transporter_id = ?,
 											 product_type = ?, product_weight = ?, product_bill_image = ?, pickup_product_location_image = ?,
-											 pickup_date = ?, pick_by = ?, drop_location=?, updated_at = ?
+											 pickup_date = ?, pick_by = ?, pickup_remarks= ?, drop_location=?, updated_at = ?
                        WHERE id = ?`;
 		const values = [
 			trip.slno,
@@ -73,6 +75,7 @@ export default class TripService {
 			trip.pickupProductLocationImage,
 			trip.pickupDate,
 			trip.pickBy,
+			trip.pickupRemarks,
 			trip.dropLocation,
 			trip.updatedAt,
 			trip.id,
@@ -86,9 +89,9 @@ export default class TripService {
 	// Update a trip status by slno
 	public static async updateTripStatus(trip: Trip): Promise<Trip | null> {
 		const query = `UPDATE trips
-                       SET drop_product_location_image = ?,  status = ?, drop_by = ?, drop_date = ?, updated_at = ?
+                       SET drop_product_location_image = ?,  status = ?, drop_by = ?, drop_date = ?, drop_remarks=?, updated_at = ?
                        WHERE id = ?`;
-		const values = [trip.dropProductLocationImage, trip.status, trip.dropBy, trip.dropDate, trip.updatedAt, trip.id];
+		const values = [trip.dropProductLocationImage, trip.status, trip.dropBy, trip.dropDate, trip.dropRemarks, trip.updatedAt, trip.id];
 
 		const [result] = await pool.query<ResultSetHeader>(query, values);
 		const affectedRows = result.affectedRows;

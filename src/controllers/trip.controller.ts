@@ -25,6 +25,7 @@ export default class TripController {
 				productBillImage,
 				pickupProductLocationImage,
 				dropLocation,
+				pickupRemarks,
 			} = req.body;
 
 			// Check if the slno already exists
@@ -56,8 +57,10 @@ export default class TripController {
 				pickupProductLocationImageUrl,
 				new Date(), // Pickup date
 				userId,
+				pickupRemarks,
 				dropLocation,
 				undefined, // Drop-related fields are left out
+				undefined,
 				undefined,
 				undefined,
 				new Date(),
@@ -145,6 +148,7 @@ export default class TripController {
 				productWeight,
 				productBillImage,
 				pickupProductLocationImage,
+				pickupRemarks,
 				dropLocation,
 			} = req.body;
 
@@ -181,6 +185,7 @@ export default class TripController {
 			trip.productBillImage = productBillImageUrl;
 			trip.pickupProductLocationImage = pickupProductLocationImageUrl;
 			trip.pickupDate = new Date() || trip.pickup_date;
+			trip.pickupRemarks = pickupRemarks || trip.pickupRemarks;
 			trip.dropLocation = dropLocation || trip.drop_location;
 			trip.pickBy = userId || trip.pick_by;
 			trip.updatedAt = new Date();
@@ -209,7 +214,9 @@ export default class TripController {
 		try {
 			const userId = req?.user?.id || '-1';
 			const { slno } = req.params;
-			const { dropProductLocationImage } = req.body;
+			const { dropProductLocationImage, dropRemarks } = req.body;
+
+			console.log('drop::::', dropRemarks);
 
 			// Fetch trip from the database
 			const trip: any = await TripService.findBySlNo(slno);
@@ -227,6 +234,8 @@ export default class TripController {
 
 			trip.dropProductLocationImage = dropProductLocationImageUrl;
 			trip.dropBy = userId || trip.drop_by;
+			trip.dropRemarks = dropRemarks || '';
+
 			trip.dropDate = new Date();
 			trip.updatedAt = new Date();
 

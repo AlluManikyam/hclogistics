@@ -11,10 +11,12 @@ export class Trip {
 	pickupProductLocationImage?: string;
 	pickupDate: Date;
 	pickBy?: string;
+	pickupRemarks?: string;
 	dropLocation?: string;
 	dropProductLocationImage?: string;
 	dropDate?: Date;
 	dropBy?: string;
+	dropRemarks?: string;
 	createdAt: Date;
 	updatedAt: Date;
 	deleted?: boolean;
@@ -32,10 +34,12 @@ export class Trip {
 		pickupProductLocationImage?: string,
 		pickupDate?: Date,
 		pickBy?: string,
+		pickupRemarks?: string,
 		dropLocation?: string,
 		dropProductLocationImage?: string,
 		dropDate?: Date,
 		dropBy?: string,
+		dropRemarks?: string,
 		createdAt?: Date,
 		updatedAt?: Date,
 		deleted?: boolean,
@@ -52,10 +56,12 @@ export class Trip {
 		this.pickupProductLocationImage = pickupProductLocationImage;
 		this.pickupDate = pickupDate || new Date();
 		this.pickBy = pickBy;
+		this.pickupRemarks = pickupRemarks;
 		this.dropLocation = dropLocation;
 		this.dropProductLocationImage = dropProductLocationImage;
 		this.dropDate = dropDate;
 		this.dropBy = dropBy;
+		this.dropRemarks = dropRemarks;
 		this.createdAt = createdAt || new Date();
 		this.updatedAt = updatedAt || new Date();
 		this.deleted = deleted || false;
