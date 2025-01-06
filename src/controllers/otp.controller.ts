@@ -6,6 +6,7 @@ import { SystemHelper } from '@Utility/system-helper';
 import { v4 as uuidv4 } from 'uuid';
 import { Otp } from '@Models/otp.model';
 import UserService from '@ServiceHelpers/user.service.helper';
+import SmsService from '@Routes/sms.service';
 
 export default class OTPController {
 	// Validity User and Generate
@@ -29,8 +30,9 @@ export default class OTPController {
 
 			await OtpService.createOtp(otp);
 
+			const message = ` Your OTP for logging in to HCLogistics is ${otpValue}. Please do not share this OTP with anyone.`;
 			// Send the OTP to the user's mobile number here (e.g., via SMS)
-
+			await SmsService.sendSms(mobileNumber, message);
 			return SystemHelper.sendResponse(req, res, 200, { otp: otpValue });
 		} catch (err) {
 			if (err instanceof Error) {

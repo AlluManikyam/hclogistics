@@ -14,4 +14,14 @@ export class Constants {
 	public static Aws = {
 		BUCKET: 'hclogistics-data',
 	};
+
+	public static smsGateway = {
+		status: 'true',
+		userName: 'Hclogistics',
+		password: '465593',
+		sender: 'HACHLO',
+		type: '1',
+		smsTemplateId: '1707173469065266177',
+		url: 'https://www.smsstriker.com/API/sms.php',
+	};
 }

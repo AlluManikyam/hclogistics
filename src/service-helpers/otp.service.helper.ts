@@ -2,6 +2,8 @@
 
 import { Otp } from '@Models/otp.model';
 import { queryOne, pool } from '@Configs/db.config';
+import { SMSLog } from '@Models/sms-logs.model';
+import SmsService from '@Routes/sms.service';
 
 export default class OtpService {
 	// Create a new OTP record
@@ -68,16 +70,40 @@ export default class OtpService {
 
 		if (otp) {
 			const requestAttempts = otp.request_attempts;
+			const otpValue = Math.floor(100000 + Math.random() * 900000).toString();
 			otp.requestAttempts = requestAttempts + 1;
 			otp.expiryDate = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes validity
-			// otp.otp = Math.floor(100000 + Math.random() * 900000).toString();
-			otp.otp = '123456';
+			otp.otp = otpValue;
+			// otp.otp = '123456';
 			otp.updatedAt = new Date();
+			const message = ` Your OTP for logging in to HCLogistics is ${otpValue}. Please do not share this OTP with anyone.`;
+			// Send the OTP to the user's mobile number here (e.g., via SMS)
+			await SmsService.sendSms(sendTo, message);
 
 			await OtpService.updateOtp(otp);
 
 			return otp;
 		}
 		return null;
+	}
+
+	public static async createSmsLog(smsLog: SMSLog): Promise<SMSLog> {
+		const query = `INSERT INTO sms_log (id, mobile, subject, status, additional_info, created_by, created_at, updated_by, updated_at, deleted)
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+		const values = [
+			smsLog.id,
+			smsLog.mobile,
+			smsLog.subject,
+			smsLog.status,
+			smsLog.additionalInfo,
+			smsLog.createdBy,
+			smsLog.createdAt,
+			smsLog.updatedBy,
+			smsLog.updatedAt,
+			smsLog.deleted,
+		];
+
+		await pool.query(query, values);
+		return smsLog;
 	}
 }

@@ -118,3 +118,19 @@ CREATE TABLE `app_versions` (
   `deleted` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+-- sms_log definition
+CREATE TABLE `sms_log` (
+  `id` varchar(255) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `additional_info` text DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_by` varchar(255) DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;

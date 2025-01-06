@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import { Otp } from '@Models/otp.model';
 import OtpService from '@ServiceHelpers/otp.service.helper';
+import SmsService from '@Routes/sms.service';
 
 // JWT secret key (use environment variables for security)
 const JWT_SECRET = process.env.JWT_SECRET || 'this is hmc logistics application';
@@ -26,14 +27,18 @@ export default class LoginController {
 			}
 
 			// Send OTP
-			// const otpValue = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
-			const otpValue = '123456'; // 6-digit OTP for testing
+			const otpValue = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
+			// const otpValue = '123456'; // 6-digit OTP for testing
 			const otpId = uuidv4();
 			const expiryDate = new Date(Date.now() + 15 * 60 * 1000); // OTP expires in 15 minutes
 
 			const otp = new Otp(otpId, mobileNumber, otpValue, 'pending', 'login', 1, 0, expiryDate);
 
 			await OtpService.createOtp(otp);
+
+			const message = ` Your OTP for logging in to HCLogistics is ${otpValue}. Please do not share this OTP with anyone.`;
+			// Send the OTP to the user's mobile number here (e.g., via SMS)
+			await SmsService.sendSms(mobileNumber, message);
 
 			return SystemHelper.sendResponse(req, res, 200, { valid: true });
 		} catch (err) {

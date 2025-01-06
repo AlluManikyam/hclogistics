@@ -4,3 +4,9 @@ export interface ITenant {
 	description: string;
 	image: string;
 }
+
+export interface SMSGatewayResponseData {
+	Id: string;
+	Ack: string;
+	mobileNo: string;
+}
